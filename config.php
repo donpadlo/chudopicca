@@ -26,6 +26,35 @@ if ($debug) {
 	error_reporting(E_ALL);
 }
 
+//состав
+  $menu=array();
+  $menu[]=["name"=>"name",
+	   "descr"=>"descr",
+	   "type"=>"main", //main or dop
+	   "structure"=>array("1","2","3"),
+	   "weight"=>array("400","500","800"),
+	   "cost"=>array(250,300,400),   
+	   "images"=>array("1.jpg","2.jpg"),
+  ];
+
+  $menu[]=["name"=>"name2",
+	   "descr"=>"descr2",
+	   "type"=>"main", //main or dop
+	   "structure"=>array("1","2","3"),
+	   "weight"=>array("400","500","800"),
+	   "cost"=>array(250,300,400),    
+	   "images"=>array("1.jpg","2.jpg"),
+  ];
+  $menu[]=["name"=>"name3",
+	   "descr"=>"descr3",
+	   "type"=>"dop", //main or dop
+	   "structure"=>array("1","2","3"),
+	   "weight"=>array("400","500","800"),
+	   "cost"=>array(250,300,400),    
+	   "images"=>array("1.jpg","2.jpg"),
+  ];
+  
+
 //остальные настройки в inc/config.php
 
 ?>
