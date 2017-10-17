@@ -10,7 +10,7 @@
 <head id="idheader">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
+	<meta name="description" content="Сайт ЧудоПицца">
 	<meta name="author" content="(c) 2017 by Gribov Pavel">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title><?php echo $cfg->sitename;?>
@@ -38,12 +38,12 @@
 	<span class="icon-bar"></span>
 	<span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Project name</a>
+      <a class="navbar-brand" href="#">ЧудоПицца</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-	<li class="active"><a href="#">Home</a></li>
-	<li><a href="#about">About</a></li>
+	<li class="active"><a href="#">Меню</a></li>
+	<li><a href="#about">Где мы</a></li>
 	</li>
       </ul>
     </div><!--/.nav-collapse -->

@@ -5,7 +5,7 @@
 			<ul class="list-grid-ul">
 				<li>
 					<div class="thumb">
-						<img src="https://placeimg.com/550/368/animals" alt="gallery image or whatever" />
+						<img src="controller/client/themes/bootstrap/img/1.jpg" alt="gallery image or whatever" />
 					</div>
 					<div class="data">
 						<div><b>This is the title</b></div>
@@ -15,7 +15,7 @@
 				</li>
 				<li>
 					<div class="thumb">
-						<img src="https://placeimg.com/550/368/arch" alt="gallery image or whatever" />
+						<img src="controller/client/themes/bootstrap/img/2.jpg" alt="gallery image or whatever" />
 					</div>
 					<div class="data">
 						<div><b>This is the title</b></div>
@@ -25,7 +25,7 @@
 				</li>
 				<li>
 					<div class="thumb">
-						<img src="https://placeimg.com/550/368/nature" alt="gallery image or whatever" />
+						<img src="controller/client/themes/bootstrap/img/3.jpg" alt="gallery image or whatever" />
 					</div>
 					<div class="data">
 						<div><b>This is the title</b></div>
@@ -35,7 +35,7 @@
 				</li>
 				<li>
 					<div class="thumb">
-						<img src="https://placeimg.com/550/368/people" alt="gallery image or whatever" />
+						<img src="controller/client/themes/bootstrap/img/3.jpg" alt="gallery image or whatever" />
 					</div>
 					<div class="data">
 						<div><b>This is the title</b></div>
@@ -45,7 +45,7 @@
 				</li>
 				<li>
 					<div class="thumb">
-						<img src="https://placeimg.com/550/368/tech" alt="gallery image or whatever" />
+						<img src="controller/client/themes/bootstrap/img/1.jpg" alt="gallery image or whatever" />
 					</div>
 					<div class="data">
 						<div><b>This is the title</b></div>
