@@ -26,8 +26,8 @@
 							</div>
 							<div  align="center" >
 								<div align="center" class="btn-group-vertical">
-								  <button type="button" class="btn btn-default">Оформить заказ</button>
-								  <button type="button" class="btn btn-info">Положить в корзину</button>
+								  <button type="button" onclick="OpenCart();" class="btn btn-default">Оформить заказ</button>
+								  <button type="button" onclick="AddToCart(<?php echo $id?>);"class="btn btn-info">Положить в корзину</button>
 								</div>
 							</div>
 						</div>
@@ -61,11 +61,25 @@
 		    window.addEventListener('resize', VK_Widget_Init, false);
 		</script>		
 
-	    </div>
-	    <script>
-			$('.simple-list-grid').simpleListGrid({
-			    'state': 'grid'
-			});
-	    </script>	    	    
+	    </div>   	    
 	</div>
 </div>	
+<div id="widjet_cart" class="widjet_cart">
+    <img src="controller/client/themes/bootstrap/img/backet_empty.png" alt="<?php echo $pmenu["descr"];?>" />
+</div>
+<div id="dialog-choise-cart" title="Содержимое корзины">    
+    <div id="list_cart">
+    </div>            
+</div>
+<script>
+    $('.simple-list-grid').simpleListGrid({
+	'state': 'grid'
+    });
+    function OpenCart(){        
+        $("#list_cart").html("");
+        $.get('index.php?route=/controller/server/list_cart.php&cart_ids=&cart_counts=', function( data ) {
+            $("#list_cart").html(data);
+            $("#dialog-choise-cart").dialog("open" );   
+        });          
+    };
+</script>	 
