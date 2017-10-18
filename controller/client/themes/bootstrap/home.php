@@ -1,5 +1,6 @@
 <div class="container-fluid">
 	<div class="row">	    
+	    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-10" style="padding-right: 0px;padding-left: 0px;">    
 		<div class="simple-list-grid">
 			<ul class="list-grid-ul">
 			<?php
@@ -37,13 +38,34 @@
 			?>				
 			</ul>
 		</div>
+	</div>
+	    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2" style="padding-right: 0px;padding-left: 0px;">    
+		<div id="vk_widget"></div>
+		<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
+		<script>
+		    function VK_Widget_Init(){
+			document.getElementById('vk_widget').innerHTML = '<div id="vk_groups"></div>';
+			VK.Widgets.Group("vk_groups", {mode: 0, width: "auto", height: "400"}, 128460609);
+		    };
+		    window.addEventListener('load', VK_Widget_Init, false);
+		    window.addEventListener('resize', VK_Widget_Init, false);
+		</script>		
+		<div id="vk_widget1"></div>
+		<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
+		<script>
+		    function VK_Widget_Init(){
+			document.getElementById('vk_widget1').innerHTML = '<div id="vk_groups1"></div>';
+			VK.Widgets.Group("vk_groups1", {mode: 4, width: "auto", height: "400"}, 128460609);
+		    };
+		    window.addEventListener('load', VK_Widget_Init, false);
+		    window.addEventListener('resize', VK_Widget_Init, false);
+		</script>		
+
+	    </div>
 	    <script>
 			$('.simple-list-grid').simpleListGrid({
 			    'state': 'grid'
 			});
-		</script>
-	    
-	    
-	    
+	    </script>	    	    
 	</div>
 </div>	
