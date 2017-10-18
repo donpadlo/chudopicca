@@ -28,13 +28,37 @@ if ($debug) {
 
 //состав
   $menu=array();
-  $menu[]=["name"=>"name",
-	   "descr"=>"descr",
+  $menu[]=["name"=>"Маргарита",
+	   "descr"=>"Изысканый вкус копченых колбасок",
 	   "type"=>"main", //main or dop
-	   "structure"=>array("1","2","3"),
+	   "structure"=>array("Сыр","Помидоры","Маслины","Перец","Соус чили"),
 	   "weight"=>array("400","500","800"),
 	   "cost"=>array(250,300,400),   
 	   "images"=>array("1.jpg","2.jpg"),
+  ];
+  $menu[]=["name"=>"Маргарита",
+	   "descr"=>"Изысканый вкус копченых колбасок",
+	   "type"=>"main", //main or dop
+	   "structure"=>array("Сыр","Помидоры","Маслины","Перец","Соус чили"),
+	   "weight"=>array("400","500","800"),
+	   "cost"=>array(250,300,400),   
+	   "images"=>array("3.jpg","2.jpg"),
+  ];
+  $menu[]=["name"=>"Маргарита",
+	   "descr"=>"Изысканый вкус копченых колбасок",
+	   "type"=>"main", //main or dop
+	   "structure"=>array("Сыр","Помидоры","Маслины","Перец","Соус чили"),
+	   "weight"=>array("400","500","800"),
+	   "cost"=>array(250,300,400),   
+	   "images"=>array("1.jpg","2.jpg"),
+  ];
+  $menu[]=["name"=>"Маргарита",
+	   "descr"=>"Изысканый вкус копченых колбасок",
+	   "type"=>"main", //main or dop
+	   "structure"=>array("Сыр","Помидоры","Маслины","Перец","Соус чили"),
+	   "weight"=>array("400","500","800"),
+	   "cost"=>array(250,300,400),   
+	   "images"=>array("2.jpg","2.jpg"),
   ];
 
   $menu[]=["name"=>"name2",

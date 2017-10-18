@@ -26,6 +26,7 @@
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery-ui.min.js"></script>	
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/bootstrap.min.js"></script>	
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/simple-list-grid.js"></script>	
+	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/chudopicca.js"></script>	
 </head>
 <body>
 <!-- Fixed navbar -->
@@ -42,10 +43,13 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-	<li class="active"><a href="#">Меню</a></li>
-	<li><a href="#about">Где мы</a></li>
+	<li <?php if ($content_page=="home"){echo "class=\"active\"";};?>><a href="index.php?content_page=home">Меню</a></li>
+	<li <?php if ($content_page=="about"){echo "class=\"active\"";};?>><a href="index.php?content_page=about">Где мы</a></li>
 	</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
 </div>    
+<?php
+echo "!!!!!!!!!$content_page!!!!!!";
+?>
