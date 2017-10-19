@@ -28,5 +28,5 @@
     </div>
 </div> 
 <div id="widjet_cart" class="widjet_cart">
-    <img src="controller/client/themes/bootstrap/img/backet_empty.png" alt="<?php echo $pmenu["descr"];?>" />
+    <img height="40px" width="40px" src="controller/client/themes/bootstrap/img/backet_empty.png" />
 </div>

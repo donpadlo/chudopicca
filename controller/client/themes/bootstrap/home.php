@@ -5,11 +5,11 @@
 			<ul class="list-grid-ul">
 			<?php
 			 foreach ($menu as $id => $pmenu){
-				 if ($pmenu["type"]=="main"){
+				 if ($pmenu["type"]=="main"){				     
 					 ?>
 					<li>
-						<div class="thumb">
-							<img src="controller/client/themes/bootstrap/img/<?php echo $pmenu["images"][0];?>" alt="<?php echo $pmenu["descr"];?>" />
+						<div class="thumb" id="trumb_<?php echo $id?>">
+						    <img height="100px" width="100px" id="<?php echo "pic_$id";?>" src="/controller/client/themes/bootstrap/img/<?php echo $pmenu["images"][0];?>" alt="<?php echo $pmenu["descr"];?>" />
 						</div>
 						<div class="data">
 							<div><b><?php echo $pmenu["name"];?></b></div>
@@ -17,7 +17,7 @@
 							<div><b>Состав:</b>
 							<?php
 								$cnt=0;
-								foreach ($pmenu["structure"] as $id => $struc){
+								foreach ($pmenu["structure"] as $ids => $struc){
 									echo $struc;
 									$cnt++;
 									if ($cnt!=count($pmenu["structure"])){echo ", ";};
@@ -65,8 +65,11 @@
 	</div>
 </div>	
 <div id="widjet_cart" class="widjet_cart">
-    <img src="controller/client/themes/bootstrap/img/backet_empty.png" alt="<?php echo $pmenu["descr"];?>" />
+    <img height="40px" width="40px" src="controller/client/themes/bootstrap/img/backet_empty.png" />
 </div>
+<div id="anim_picca" class="anim_picca">    
+</div>
+
 <div id="dialog-choise-cart" title="Содержимое корзины">    
     <div id="list_cart">
     </div>            
