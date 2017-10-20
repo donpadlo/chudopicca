@@ -24,12 +24,29 @@
 								};
 							?>
 							</div>
-							<div  align="center" >
-								<div align="center" class="btn-group-vertical">
-								  <button type="button" onclick="OpenCart();" class="btn btn-default">Оформить заказ</button>
-								  <button type="button" onclick="AddToCart(<?php echo $id?>);"class="btn btn-info">Положить в корзину</button>
-								</div>
-							</div>
+							<div class="container-fluid">
+								<div class="row">	    
+								    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="padding-right: 0px;padding-left: 0px;">    
+									<select id="weight_<?php echo $id?>" class="form-control">
+									    <?php
+										foreach ($pmenu["weight"] as $ids => $weight){
+											echo "<option>$weight гр</option>";
+										};									    
+									    ?>
+    								        </select>
+									<div id="price" class="price">									    
+									    300 <i class="fa fa-rub" aria-hidden="true"></i>
+									  </div>
+								    </div>    
+								    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="padding-right: 0px;padding-left: 0px;">    
+									<div  align="center" >										
+										  <button type="button" onclick="OpenCart();" class="btn btn-default btn-sm form-control">Заказать</button>
+										  <button type="button" onclick="AddToCart(<?php echo $id?>);"class="btn btn-info btn-sm form-control">В корзину</button>										
+									</div>
+
+								    </div>    
+								  </div>
+							    </div>
 						</div>
 					</li>
 				<?php

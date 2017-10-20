@@ -1,3 +1,7 @@
+.price{
+    font-size: x-large;
+    text-align: center;    
+}
 .widjet_cart {
     top: 25px;
     position: absolute;
