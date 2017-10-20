@@ -34,9 +34,10 @@
 										};									    
 									    ?>
     								        </select>
-									<div id="price" class="price">									    
+									  <div id="price_<?php echo $id?>" class="price">									    
 									    300 <i class="fa fa-rub" aria-hidden="true"></i>
 									  </div>
+									  <input type="hidden" id = "cost_<?php echo $id?>" value="300">
 								    </div>    
 								    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="padding-right: 0px;padding-left: 0px;">    
 									<div  align="center" >										
