@@ -48,8 +48,8 @@
 		 };	
 		$ht=$ht."<tr><th></th><th>Всего</th><th></th><th></th><th>".$total."<i class='fa fa-rub' aria-hidden='true'></i></th></tr>"; 
 		$ht=$ht.'</table><br/>';		    		
-		$ht="Телефон: $mobile<br/>";
-		$ht="Адрес: $address<br/>";
+		$ht=$ht."Телефон: $mobile<br/>";
+		$ht=$ht."Адрес: $address<br/>";
 		$mail->Body    = $ht;		
 		if(!$mail->send()) {			
 			echo 'Mailer Error: ' . $mail->ErrorInfo;
