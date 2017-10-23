@@ -23,6 +23,7 @@ include_once(WUO_ROOT.'/class/config.php'); // Класс работы с кон
 include_once(WUO_ROOT.'/inc/connect.php');   // Соединяемся с БД, получаем $mysql_base_id
 include_once(WUO_ROOT.'/inc/config.php');   // получаем оновные настройки
 include_once(WUO_ROOT.'/inc/functions.php'); // Загружаем функции
+include_once(WUO_ROOT.'/inc/targetsms.php'); // Загружаем функции
 
 // Если указан маршрут, то подключаем указанный в маршруте скрипт и выходим
 if (isset($_GET['route'])) {
