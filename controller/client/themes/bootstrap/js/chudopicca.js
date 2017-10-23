@@ -98,15 +98,17 @@ function ZakazFinish(){
 				$.post("index.php?route=/controller/server/createzajaz.php",{
 					backet: JSON.stringify(backet),
 					mobile:$("#phone").val(),
-					address:$("#address").val()
+					address:$("#address").val(),
+					fromcart:fromcart.checked
 				},
 				  onAjaxSuccess
 				);				 
 				function onAjaxSuccess(data){
 				  if (data=="ok"){
-					  $("#list_cart").html('<div class="alert alert-success"><strong>Спасибо!</strong><br/>Ожидайте звонка оператора для подтверждения заказа в течении 5 минут..</div>');			  
-					  ClearCart();
-					  backetRefresh();
+					    $("#list_cart").html('<div class="alert alert-success"><strong>Спасибо!</strong><br/>Ожидайте звонка оператора для подтверждения заказа в течении 5 минут..</div>');			  
+					    backet=[];
+					    backetRefresh();
+					    localStorage.setItem('backet',JSON.stringify(backet));
 				  } else {
 					$("#list_cart").html(data);			  
 				  };
@@ -157,7 +159,7 @@ function OpenCart(){
 		ht=ht+'</div>';
 		ht=ht+'<div class="checkbox">';
 		ht=ht+'	<label>';
-		ht=ht+'		<input type="checkbox"> Оплата будет с пластиковой карты';
+		ht=ht+'		<input id="fromcart" name="fromcart" type="checkbox"> Оплата будет с пластиковой карты';
 		ht=ht+'	</label>';
 		ht=ht+'</div>';
 		ht=ht+'<label for="phone">Адрес доставки</label>';		
