@@ -52,7 +52,7 @@
 		} else {
 		    echo "ok";
 		    @file_put_contents(WUO_ROOT.'/orders.txt', $corder);
-		    @file_put_contents(WUO_ROOT.'/bakets.txt', _POST("backet")."\n",FILE_APPEND );
+		    @file_put_contents(WUO_ROOT.'/bakets.txt', date("d.m.Y H:i")."::"._POST("backet")."\n",FILE_APPEND );
 		};			
  } else {
 	 echo '<div class="alert alert-error"><strong>Ошибка!</strong><br/>Возникла не известная ошибка во время передачи заказа! Попробуйте оформить заказ снова..</div>';	 

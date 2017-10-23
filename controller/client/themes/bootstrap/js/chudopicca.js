@@ -101,9 +101,10 @@ function ZakazFinish(){
 				  onAjaxSuccess
 				);				 
 				function onAjaxSuccess(data){
-						alert(data);
 				  if (data=="ok"){
 					  $("#list_cart").html('<div class="alert alert-success"><strong>Спасибо!</strong><br/>Ожидайте звонка оператора для подтверждения заказа в течении 5 минут..</div>');			  
+					  ClearCart();
+					  backetRefresh();
 				  } else {
 					$("#list_cart").html(data);			  
 				  };
