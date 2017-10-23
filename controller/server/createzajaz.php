@@ -1,5 +1,7 @@
 <?php
  include_once(WUO_ROOT.'/inc/lib/PHPMailerAutoload.php'); 
+ $corder=file_get_contents(WUO_ROOT.'/orders.txt');
+ $corder++;
  $backet=_POST("backet");
  if ($backet!=""){
 	 $backet=json_decode($backet);
@@ -13,9 +15,9 @@
 		$mail->From = $smptp_user;
 		$mail->FromName = $smptp_username;
 		$mail->CharSet="UTF8";
-		$mail->addAddress($mailto, 'Новый заказ!');
+		$mail->addAddress($mailto, "Новый заказ!№$corder");
 		$mail->isHTML(true);                                  
-		$mail->Subject = 'Сделан новый заказ!';
+		$mail->Subject = "Сделан новый заказ!№$corder";
 		$ht="";
 		    $ht=$ht.'<table border=1">';
 		    $ht=$ht.'<thead>';
@@ -49,6 +51,8 @@
 			echo 'Mailer Error: ' . $mail->ErrorInfo;
 		} else {
 		    echo "ok";
+		    @file_put_contents(WUO_ROOT.'/orders.txt', $corder);
+		    @file_put_contents(WUO_ROOT.'/bakets.txt', _POST("backet")."\n",FILE_APPEND );
 		};			
  } else {
 	 echo '<div class="alert alert-error"><strong>Ошибка!</strong><br/>Возникла не известная ошибка во время передачи заказа! Попробуйте оформить заказ снова..</div>';	 
