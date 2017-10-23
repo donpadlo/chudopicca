@@ -1,17 +1,16 @@
 <?php
- include_once(WUO_ROOT.'/inc/lib/src/class.phpmailer.php'); 
+ include_once(WUO_ROOT.'/inc/lib/PHPMailerAutoload.php'); 
  $backet=_POST("backet");
  if ($backet!=""){
 	 $backet=json_decode($backet);
-		$mail = new PHPMailer;
-		die();
+		$mail = new PHPMailer;		
 		$mail->isSMTP();                                      // Set mailer to use SMTP
-		$mail->Host = 'smtp.yandex.ru';  // Specify main and backup SMTP servers
+		$mail->Host = 'smtp.mail.ru';  // Specify main and backup SMTP servers
 		$mail->SMTPAuth = true;                               // Enable SMTP authentication
-		$mail->Username = 'donpadlo@yandex.ru';                 // SMTP username
-		$mail->Password = 'padlozapadlo';                           // SMTP password
+		$mail->Username = 'pavel_grb@mail.ru';                 // SMTP username
+		$mail->Password = '345t24rt2345';                           // SMTP password
 		$mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
-		$mail->From = 'donpadlo@yandex.ru';
+		$mail->From = 'pavel_grb@mail.ru';
 		$mail->FromName = 'Грибов Павел';
 		$mail->addAddress('donpadlo@gmail.com', 'Абырвалг');     // Add a recipient
 		$mail->isHTML(true);                                  // Set email format to HTML
