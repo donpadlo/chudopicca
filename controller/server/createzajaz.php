@@ -36,10 +36,10 @@
 			$ht=$ht."<td>$i</td>";			
 			$ht=$ht.'<td><strong>'.$pbacket->name.'</strong><br/>'.$pbacket->descr.'</td>';
 			$ht=$ht.'<td>'.$pbacket->width.'гр.</td>';
-			$ht=$ht.'<td>'.+$pbacket->count.'</td>';
+			$ht=$ht.'<td>'.$pbacket->count.'</td>';
 			$summ=$pbacket->cost*$pbacket->count;
 			$total=$total+$summ;
-			$ht=$ht.'<td>'+$summ+'</td>';
+			$ht=$ht.'<td>'.$summ.'</td>';
 			$ht=$ht.'</tr>';
 		 };	
 		$ht=$ht."<tr><th></th><th>Всего</th><th></th><th></th><th>".$total."<i class='fa fa-rub' aria-hidden='true'></i></th></tr>"; 
