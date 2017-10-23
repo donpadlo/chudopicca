@@ -33,9 +33,10 @@
 			$i++;
 			$ht=$ht+'<tr>';
 			$ht=$ht+"<td>$i</td>";			
-			$ht=$ht+'<td>'+$pbacket.width+'гр.</td>';
-			$ht=$ht+'<td>'+$pbacket.count+'</td>';
-			$summ=$pbacket.cost*$pbacket.count;
+			$ht=$ht+'<td><strong>'.$pbacket->name.'</strong><br/>'.$pbacket->descr.'</td>';
+			$ht=$ht+'<td>'+$pbacket->width+'гр.</td>';
+			$ht=$ht+'<td>'+$pbacket->count+'</td>';
+			$summ=$pbacket->cost*$pbacket->count;
 			$total=$total+$summ;
 			$ht=$ht+'<td>'+$summ+'</td>';
 			$ht=$ht+'</tr>';
