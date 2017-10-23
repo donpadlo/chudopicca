@@ -4,26 +4,50 @@
  if ($backet!=""){
 	 $backet=json_decode($backet);
 		$mail = new PHPMailer;		
-		$mail->isSMTP();                                      // Set mailer to use SMTP
-		$mail->Host = 'smtp.mail.ru';  // Specify main and backup SMTP servers
-		$mail->SMTPAuth = true;                               // Enable SMTP authentication
-		$mail->Username = 'pavel_grb@mail.ru';                 // SMTP username
-		$mail->Password = '345t24rt2345';                           // SMTP password
-		$mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
-		$mail->From = 'pavel_grb@mail.ru';
-		$mail->FromName = 'Грибов Павел';
-		$mail->addAddress('donpadlo@gmail.com', 'Абырвалг');     // Add a recipient
-		$mail->isHTML(true);                                  // Set email format to HTML
-		$mail->Subject = 'Here is the subject';
-		$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-		$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-		if(!$mail->send()) {
-			echo 'Message could not be sent.';
+		$mail->isSMTP();               
+		$mail->Host = $smtp_server;  
+		$mail->SMTPAuth = true;                               
+		$mail->Username = $smptp_user;                
+		$mail->Password = $smptp__pass;                     
+		$mail->SMTPSecure = 'tls';                            
+		$mail->From = $smptp_user;
+		$mail->FromName = $smptp_username;
+		$mail->addAddress($mailto, 'New Order!');
+		$mail->isHTML(true);                                  
+		$mail->Subject = 'New order!';
+		$ht="";
+		    $ht=$ht+'<table border=1">';
+		    $ht=$ht+'<thead>';
+		    $ht=$ht+'  <tr>';
+		    $ht=$ht+'    <th>#</th>';
+		    $ht=$ht+'    <th>Название</th>';
+		    $ht=$ht+'    <th>Вес</th>';
+		    $ht=$ht+'    <th>Кол.</th>';
+		    $ht=$ht+'    <th>Сумма</th>';
+		    $ht=$ht+'  </tr>';
+		    $ht=$ht+'</thead>';	
+		    $total=0;		    
+		    // перечисляем заказ
+		$i=0;		    
+		foreach ($backet as $key => $pbacket) {				  
+			$i++;
+			$ht=$ht+'<tr>';
+			$ht=$ht+"<td>$i</td>";			
+			$ht=$ht+'<td>'+$pbacket.width+'гр.</td>';
+			$ht=$ht+'<td>'+$pbacket.count+'</td>';
+			$summ=$pbacket.cost*$pbacket.count;
+			$total=$total+$summ;
+			$ht=$ht+'<td>'+$summ+'</td>';
+			$ht=$ht+'</tr>';
+		 };	
+		$ht=$ht+"<tr><th></th><th>Всего</th><th></th><th></th><th>"+$total+"<i class='fa fa-rub' aria-hidden='true'></i></th></tr>"; 
+		$ht=$ht+'</table>';		    		
+		$mail->Body    = $ht;		
+		if(!$mail->send()) {			
 			echo 'Mailer Error: ' . $mail->ErrorInfo;
 		} else {
-			echo 'Message has been sent';
-		};		
-		echo "ok";
+		    echo "ok";
+		};			
  } else {
 	 echo '<div class="alert alert-error"><strong>Ошибка!</strong><br/>Возникла не известная ошибка во время передачи заказа! Попробуйте оформить заказ снова..</div>';	 
  };

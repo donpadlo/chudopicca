@@ -14,6 +14,13 @@ $mysql_user = 'zapadlo';       // Пользователь БД
 $mysql_pass = 'zapadlo';       // Пароль пользователя БД
 $mysql_base = 'chudo';     // Имя базы
 
+#настройки отправки почты
+$smtp_server="smtp.mail.ru";
+$smptp_user="oiefjeo@mail.ru";
+$smptp__pass="rejsofaseproioo";
+$smptp_username="Грибов Павел";
+$mailto="dooiefjo@gmail.com";
+
 $err = array();             // Массив с сообщениями об ошибках для показа пользователю при генерации страницы
 $ok = array();              // Массив с информационными сообщениями для показа пользователю при генерации страницы
 
