@@ -96,7 +96,9 @@ function ZakazFinish(){
 					});
 		} else {
 				$.post("index.php?route=/controller/server/createzajaz.php",{
-					backet: JSON.stringify(backet)					
+					backet: JSON.stringify(backet),
+					mobile:$("#phone").val(),
+					address:$("#address").val()
 				},
 				  onAjaxSuccess
 				);				 

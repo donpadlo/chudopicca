@@ -3,6 +3,8 @@
  $corder=file_get_contents(WUO_ROOT.'/orders.txt');
  $corder++;
  $backet=_POST("backet");
+ $mobile=_POST("mobile");
+ $address=_POST("address");
  if ($backet!=""){
 	 $backet=json_decode($backet);
 		$mail = new PHPMailer;		
@@ -45,14 +47,16 @@
 			$ht=$ht.'</tr>';
 		 };	
 		$ht=$ht."<tr><th></th><th>Всего</th><th></th><th></th><th>".$total."<i class='fa fa-rub' aria-hidden='true'></i></th></tr>"; 
-		$ht=$ht.'</table>';		    		
+		$ht=$ht.'</table><br/>';		    		
+		$ht="Телефон: $mobile<br/>";
+		$ht="Адрес: $address<br/>";
 		$mail->Body    = $ht;		
 		if(!$mail->send()) {			
 			echo 'Mailer Error: ' . $mail->ErrorInfo;
 		} else {
 		    echo "ok";
 		    @file_put_contents(WUO_ROOT.'/orders.txt', $corder);
-		    @file_put_contents(WUO_ROOT.'/bakets.txt', date("d.m.Y H:i")."::"._POST("backet")."\n",FILE_APPEND );
+		    @file_put_contents(WUO_ROOT.'/bakets.txt', date("d.m.Y H:i")."::"._POST("backet")."::$mobile\n",FILE_APPEND );
 		};			
  } else {
 	 echo '<div class="alert alert-error"><strong>Ошибка!</strong><br/>Возникла не известная ошибка во время передачи заказа! Попробуйте оформить заказ снова..</div>';	 
