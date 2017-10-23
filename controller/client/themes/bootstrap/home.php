@@ -1,3 +1,22 @@
+<script>
+menu_array=[];
+<?php
+ foreach ($menu as $id => $pmenu){
+	 $name=$pmenu["name"];
+	 $descr=$pmenu["descr"];
+	 $type=$pmenu["type"];
+	 $wg="";
+	 foreach ($pmenu["weight"] as $ids => $weight){
+		$wg=$wg.$weight.",";
+	};	
+	 $cst="";
+	 foreach ($pmenu["cost"] as $ids => $cost){
+		$cst=$cst.$cost.",";
+	};		
+	 echo "menu_array[$id]={name:\"$name\",descr:\"$descr\",type:\"$type\",weight:[$wg],costs:[$cst]};\n\r"; 
+ };
+?>
+</script>
 <div class="container-fluid">
 	<div class="row">	    
 	    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-10" style="padding-right: 0px;padding-left: 0px;">    
@@ -7,7 +26,7 @@
 			 foreach ($menu as $id => $pmenu){
 				 if ($pmenu["type"]=="main"){				     
 					 ?>
-					<li>
+					<li class="picca_li">
 						<div class="thumb" id="trumb_<?php echo $id?>">
 						    <img height="100px" width="100px" id="<?php echo "pic_$id";?>" src="/controller/client/themes/bootstrap/img/<?php echo $pmenu["images"][0];?>" alt="<?php echo $pmenu["descr"];?>" />
 						</div>
@@ -27,21 +46,21 @@
 							<div class="container-fluid">
 								<div class="row">	    
 								    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="padding-right: 0px;padding-left: 0px;">    
-									<select id="weight_<?php echo $id?>" class="form-control">
+									<select onchange="ChangeWeight(<?php echo $id?>)" id="weight_<?php echo $id?>" class="form-control">
 									    <?php
 										foreach ($pmenu["weight"] as $ids => $weight){
-											echo "<option>$weight гр</option>";
+											echo "<option value=$weight>$weight гр</option>";
 										};									    
 									    ?>
     								        </select>
 									  <div id="price_<?php echo $id?>" class="price">									    
-									    300 <i class="fa fa-rub" aria-hidden="true"></i>
+									    <?php echo $pmenu["cost"][0]; ?> <i class="fa fa-rub" aria-hidden="true"></i>
 									  </div>
-									  <input type="hidden" id = "cost_<?php echo $id?>" value="300">
+									  <input type="hidden" id = "cost_<?php echo $id?>" value="<?php echo $pmenu["cost"][0]; ?>">
 								    </div>    
 								    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="padding-right: 0px;padding-left: 0px;">    
 									<div  align="center" >										
-										  <button type="button" onclick="OpenCart();" class="btn btn-default btn-sm form-control">Заказать</button>
+										  <button type="button" onclick="AddToCart(<?php echo $id?>);OpenCart();" class="btn btn-default btn-sm form-control">Заказать</button>
 										  <button type="button" onclick="AddToCart(<?php echo $id?>);"class="btn btn-info btn-sm form-control">В корзину</button>										
 									</div>
 
@@ -82,25 +101,14 @@
 	    </div>   	    
 	</div>
 </div>	
-<div id="widjet_cart" class="widjet_cart">
-    <img height="40px" width="40px" src="controller/client/themes/bootstrap/img/backet_empty.png" />
-</div>
 <div id="anim_picca" class="anim_picca">    
 </div>
-
-<div id="dialog-choise-cart" title="Содержимое корзины">    
-    <div id="list_cart">
-    </div>            
-</div>
 <script>
+ if (device.mobile()==false){	 
     $('.simple-list-grid').simpleListGrid({
 	'state': 'grid'
-    });
-    function OpenCart(){        
-        $("#list_cart").html("");
-        $.get('index.php?route=/controller/server/list_cart.php&cart_ids=&cart_counts=', function( data ) {
-            $("#list_cart").html(data);
-            $("#dialog-choise-cart").dialog("open" );   
-        });          
-    };
+    });   
+  } else {
+	  $('.simple-list-grid').simpleListGrid();
+  };
 </script>	 

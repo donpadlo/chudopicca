@@ -13,8 +13,7 @@
 	<meta name="description" content="Сайт ЧудоПицца">
 	<meta name="author" content="(c) 2017 by Gribov Pavel">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title><?php echo $cfg->sitename;?>
-	</title>
+	<title><?php echo $cfg->sitename;?></title>
 	<meta name="generator" content="yarus">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -22,12 +21,16 @@
 	<link rel="stylesheet" href="controller/client/themes/<?php echo $cfg->theme; ?>/css/bootstrap.min.css">
 	<link rel="stylesheet" href="controller/client/themes/<?php echo $cfg->theme; ?>/css/font-awesome.min.css">
 	<link rel="stylesheet" href="controller/client/themes/<?php echo $cfg->theme; ?>/css/simplegrid.css">
-	<link rel="stylesheet" href="controller/client/themes/<?php echo $cfg->theme; ?>/css/chudo.css">		
+	<link rel="stylesheet" href="controller/client/themes/<?php echo $cfg->theme; ?>/css/chudo.css">	
+	<link rel="stylesheet" href="controller/client/themes/<?php echo $cfg->theme; ?>/css/jquery.toast.min.css">		
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery-3.2.1.min.js"></script>
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery-ui.min.js"></script>	
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/bootstrap.min.js"></script>	
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/simple-list-grid.js"></script>		
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/chudopicca.js"></script>	
+	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery.maskedinput.min.js"></script>		
+	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/device.min.js"></script>			
+	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery.toast.min.js"></script>			
 </head>
 <body>
 <!-- Fixed navbar -->
@@ -40,7 +43,7 @@
 	<span class="icon-bar"></span>
 	<span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Аьырвалг</a>
+      <a class="navbar-brand" href="#">ЧудоПицца</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -51,3 +54,12 @@
     </div><!--/.nav-collapse -->
   </div>
 </div>    
+<div id="dialog-choise-cart" title="Содержимое корзины">    
+    <div id="list_cart">
+    </div>        
+</div>
+<div id="widjet_cart" class="widjet_cart">
+    <img id="imgcart" onclick="OpenCart();" height="40px" width="40px" src="controller/client/themes/bootstrap/img/backet_empty.png" />
+</div>
+<div id="widjet_cost" class="widjet_cost">
+</div>

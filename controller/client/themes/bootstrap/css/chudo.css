@@ -1,3 +1,6 @@
+body{
+ background-image: url(/controller/client/themes/bootstrap/img/wallpaper.jpg);
+}
 .price{
     font-size: x-large;
     text-align: center;    
@@ -5,10 +8,24 @@
 .widjet_cart {
     top: 25px;
     position: absolute;
-    right: 90px
+    right: 90px;
+	cursor:pointer;
+}
+.widjet_cost{
+	cursor:pointer;
+	top: 30px;
+    position: absolute;
+    right: 90px;
+    font-size: x-large;
+    color: greenyellow;
+    text-align: center;
+    text-shadow: 1px 1px 2px #171717, 0 0 1em #0a0606;  	
 }
 .anim_picca {
     top: 125px;
     position: absolute;
     right: 90px;
+}
+.picca_li{
+	background-color: #f95c42;
 }

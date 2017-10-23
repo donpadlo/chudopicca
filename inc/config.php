@@ -1,5 +1,5 @@
 <?php
 $cfg = new Tconfig;
 $cfg->theme="bootstrap";
-$cfg->sitename="";
+$cfg->sitename="Чудесная пицца по Чудесной цене!";
 ?>

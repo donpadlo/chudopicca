@@ -27,6 +27,4 @@
 	    </div>
     </div>
 </div> 
-<div id="widjet_cart" class="widjet_cart">
-    <img height="40px" width="40px" src="controller/client/themes/bootstrap/img/backet_empty.png" />
-</div>
+
