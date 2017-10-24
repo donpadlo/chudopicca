@@ -45,6 +45,15 @@ function AddToCart(id){
       if (flag==0) {backet[backet.length]=bay;};
 	  localStorage.setItem('backet',JSON.stringify(backet));
 	  backetRefresh();
+
+	$.toast({
+		heading: 'Внимание!',
+		text: bay.name+" добавлено в корзину заказа",
+		icon: 'succes',
+		position: 'top-right',
+		loader: true,        
+		loaderBg: '#9EC600'  
+	});
 };
 function backetRefresh(){
 	  resultcost=0;
