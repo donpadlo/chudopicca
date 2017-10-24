@@ -104,13 +104,16 @@ function ZakazFinish(){
 						loaderBg: '#9EC600'  
 					});
 		} else {
+			        mobile=$("#phone").val();
+				address=$("#address").val();
+				fromcart=fromcart.checked;
 				$("#list_cart").html('<div align=center><img src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет оформление заказа..</h2></div>');			  		    
 				window.scrollTo(0, 0);
 				$.post("index.php?route=/controller/server/createzajaz.php",{
 					backet: JSON.stringify(backet),
-					mobile:$("#phone").val(),
-					address:$("#address").val(),
-					fromcart:fromcart.checked
+					mobile:mobile,
+					address:address,
+					fromcart:fromcart
 				},
 				  onAjaxSuccess
 				);				 
