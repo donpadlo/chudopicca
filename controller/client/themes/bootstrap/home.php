@@ -105,11 +105,13 @@ menu_array=[];
 <div id="anim_picca" class="anim_picca">    
 </div>
 <script>
- if (device.mobile()==false){	 
+ if (device.mobile()==false)&(device.tablet()==false){	 
     $('.simple-list-grid').simpleListGrid({
 	'state': 'grid'
     });   
   } else {
+      if (device.portrait()==true){
 	  $('.simple-list-grid').simpleListGrid();
+      };
   };
 </script>	 
