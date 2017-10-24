@@ -172,6 +172,13 @@ function OpenCart(){
  };		
 };
 $(document).ready(function() {			
+        $(window).scroll(function(){
+	    if ($(this).scrollTop() > 100) {
+		$('.scrollup').fadeIn();
+	    } else {
+		$('.scrollup').fadeOut();
+	    }
+	});
    backet=JSON.parse(localStorage.getItem("backet")); //корзина покупок
    if (typeof(backet)=="undefined"){backet=[]};
    if (backet==null) {backet=[]};

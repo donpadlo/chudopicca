@@ -6,7 +6,7 @@ function SendSMS($txt){
     <request>
     <message type="sms"></message>
     <message> 
-    <sender>INETKTV</sender> 
+    <sender>teleservice</sender> 
     <text>'.$txt.'</text>
     <abonent phone="'.$smsphone.'"  number_sms="1"/>
     </message>

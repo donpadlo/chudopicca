@@ -1,5 +1,33 @@
 body{
- background-image: url(/controller/client/themes/bootstrap/img/wallpaper.jpg);
+	background-image: url(/controller/client/themes/bootstrap/img/wallpaper.png);
+	background-size: contain;
+	background-position: center;
+	background-repeat: repeat-y;
+}
+.logotitle{
+	z-index: 100001;	
+	text-shadow: 1px 1px 2px #171717, 0 0 1em #0a0606;  	
+}
+.masha_set{
+	height: 80px;
+	width: 100px;
+	top: 59px;
+	position: absolute;
+	background-image: url("/controller/client/themes/bootstrap/img/masha.png");
+	background-repeat: round;
+	z-index: 1;
+}
+.scrollup {
+    width:40px;
+    height:40px;
+    opacity:0.3;
+    position:fixed;
+    bottom:50px;
+    right:100px;
+    display:none;
+    text-indent:-9999px;
+    background: url('/controller/client/themes/bootstrap/img/icon_top.png') no-repeat;
+    z-index: 10000;
 }
 .price{
     font-size: x-large;
@@ -27,5 +55,5 @@ body{
     right: 90px;
 }
 .picca_li{
-	background-color: #f95c42;
+	background-color: #ffffff;
 }
