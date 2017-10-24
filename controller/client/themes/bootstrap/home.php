@@ -17,11 +17,11 @@ menu_array=[];
  };
 ?>
 </script>
-<div id="masha_set" class="masha_set"></div>
 <div class="container-fluid">
 	<div class="row">	    
 	    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-10" style="padding-right: 0px;padding-left: 0px;">    
 		<div class="simple-list-grid">
+		    <div id="masha_set" class="masha_set"></div>
 			<ul class="list-grid-ul">
 			<?php
 			 foreach ($menu as $id => $pmenu){
