@@ -105,6 +105,7 @@ function ZakazFinish(){
 					});
 		} else {
 				$("#list_cart").html('<div align=center><img src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет оформление заказа..</h2></div>');			  		    
+				window.scrollTo(0, 0);
 				$.post("index.php?route=/controller/server/createzajaz.php",{
 					backet: JSON.stringify(backet),
 					mobile:$("#phone").val(),
