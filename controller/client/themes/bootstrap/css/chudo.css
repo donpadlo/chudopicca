@@ -11,7 +11,7 @@ body{
 .masha_set{
 	height: 80px;
 	width: 100px;
-	top: 59px;
+	top: -30px;
 	position: absolute;
 	background-image: url("/controller/client/themes/bootstrap/img/masha.png");
 	background-repeat: round;
