@@ -110,7 +110,7 @@ menu_array=[];
 	'state': 'grid'
     });   
   } else {
-      if (device.portrait()==false){
+      if (device.portrait()==true){
 	  $('.simple-list-grid').simpleListGrid();
       } else {
 	    $('.simple-list-grid').simpleListGrid({
