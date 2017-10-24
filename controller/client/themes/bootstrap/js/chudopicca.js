@@ -104,6 +104,7 @@ function ZakazFinish(){
 						loaderBg: '#9EC600'  
 					});
 		} else {
+				$("#list_cart").html('<div align=center><img src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет оформление заказа..</h2></div>');			  		    
 				$.post("index.php?route=/controller/server/createzajaz.php",{
 					backet: JSON.stringify(backet),
 					mobile:$("#phone").val(),
@@ -118,6 +119,15 @@ function ZakazFinish(){
 					    backet=[];
 					    backetRefresh();
 					    localStorage.setItem('backet',JSON.stringify(backet));
+					    	$.toast({
+							heading: 'Внимание!',
+							text: "Ожидайте звонка оператора для подтверждения заказа в течении 5 минут..",
+							icon: 'succes',
+							position: 'top-right',
+							loader: true,        
+							loaderBg: '#9EC600'  
+						});
+						window.scrollTo(0, 0);
 				  } else {
 					$("#list_cart").html(data);			  
 				  };
