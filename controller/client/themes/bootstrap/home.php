@@ -110,8 +110,12 @@ menu_array=[];
 	'state': 'grid'
     });   
   } else {
-      if (device.portrait()==true){
+      if (device.portrait()==false){
 	  $('.simple-list-grid').simpleListGrid();
+      } else {
+	    $('.simple-list-grid').simpleListGrid({
+		'state': 'grid'
+	    });   	  
       };
   };
 </script>	 
