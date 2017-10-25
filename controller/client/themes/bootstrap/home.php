@@ -7,7 +7,7 @@ menu_array=[];
 	 $type=$pmenu["type"];
 	 $wg="";
 	 foreach ($pmenu["weight"] as $ids => $weight){
-		$wg=$wg.$weight.",";
+		$wg=$wg."'".$weight."',";
 	};	
 	 $cst="";
 	 foreach ($pmenu["cost"] as $ids => $cost){
@@ -28,16 +28,16 @@ menu_array=[];
 				 if ($pmenu["type"]=="main"){				     
 					 ?>
 					<li class="picca_li">
+						<div class="titlepicca"><b><?php echo $pmenu["name"];?></b></div>
 						<div class="thumb" id="trumb_<?php echo $id?>">
 						    <img height="100px" width="100px" id="<?php echo "pic_$id";?>" src="/controller/client/themes/bootstrap/img/<?php echo $pmenu["images"][0];?>" alt="<?php echo $pmenu["descr"];?>" />
 						</div>
-						<div class="data">
-							<div><b><?php echo $pmenu["name"];?></b></div>
-							<div><?php echo $pmenu["descr"];?></div>
-							<div><b>Состав:</b>
+						<div class="data piccadescr">							
+							<div><?php echo $pmenu["descr"];?></div>							
 							<?php
 								$cnt=0;
 								$sostav="";
+								$ressost="";
 								foreach ($pmenu["structure"] as $ids => $struc){
 									$sostav=$sostav.$struc;
 									$cnt++;
@@ -46,16 +46,24 @@ menu_array=[];
 								$sostav=trim($sostav);
 								$fullsostav=$sostav;
 								if (strlen($sostav)>50){$sostav=mb_substr($sostav,0,50);$sostav=$sostav."<..>";};
-								echo "<i data-toggle='tooltip' data-placement='top' title='$fullsostav'>$sostav</i>";
-							?>
-							</div>
+								$ressost=$ressost. "<i class='popshow' id='pop$id' data-toggle='popover' data-placement='top' data-content='$fullsostav'>$sostav</i>";
+								$ressost=$ressost. "<script>$('#pop$id').popover();</script>";
+								if ($sostav!=""){
+								    echo "<div><b>Состав:</b>$ressost</div>";
+								};
+							?>							
 							<div class="container-fluid">
 								<div class="row">	    
 								    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="padding-right: 0px;padding-left: 0px;">    
 									<select onchange="ChangeWeight(<?php echo $id?>)" id="weight_<?php echo $id?>" class="form-control">
 									    <?php
 										foreach ($pmenu["weight"] as $ids => $weight){
+										if ($weight>0){
 											echo "<option value=$weight>$weight гр</option>";
+										}
+											else {
+											    echo "<option value=$weight>$weight</option>";
+											};
 										};									    
 									    ?>
     								        </select>

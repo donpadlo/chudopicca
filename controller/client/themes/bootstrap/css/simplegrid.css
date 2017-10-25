@@ -28,7 +28,8 @@ body { padding: 20px }
   -webkit-transition: all .2s ease-in;
   -moz-transition: all .2s ease-in;
   -o-transition: all .2s ease-in;
-  transition: all .2s ease-in
+  transition: all .2s ease-in;
+      border-radius: 10px 10px 0px 0px;
 }
 
 .simple-list-grid ul li .thumb {

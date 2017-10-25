@@ -160,7 +160,9 @@ function OpenCart(){
 			ht=ht+'<tr>';
 			ht=ht+'<td>'+(i+1)+'</td>';
 			ht=ht+'<td><strong>'+backet[i].name+'</strong><br/>'+backet[i].descr+'</td>';
-			ht=ht+'<td>'+backet[i].width+'гр.</td>';
+			if (backet[i].width>0)
+			{ht=ht+'<td>'+backet[i].width+'гр.</td>'} else 
+			{ht=ht+'<td>'+backet[i].width+'</td>'};
 			ht=ht+'<td>'+backet[i].count+'</td>';
 			summ=backet[i].cost*backet[i].count;
 			total=total+summ;

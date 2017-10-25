@@ -57,3 +57,23 @@ body{
 .picca_li{
 	background-color: #ffffff;
 }
+.popshow{
+     border-bottom: 1px dashed #000080; 
+     cursor:pointer;
+}
+.titlepicca{
+    background-color: red;
+    position: absolute;
+    width: 100%;
+    color: white;
+    top: 0px;
+    align-content: right;
+    text-align: right;
+    padding-right: 5px;
+    border-radius: 10px 10px 0px 0px;
+    right: 0px;
+    font-family: 'Lobster', cursive;
+}
+.piccadescr{
+    padding-top: 14px;
+}
