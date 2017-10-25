@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-	    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-10" style="padding-right: 0px;padding-left: 0px;">    
+	    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-10" style="padding-right: 0px;padding-left: 0px;">   		
 		<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac40fe8a9055019cfa8c70f218699bf483670793af29287d2a7ccbfb1a6cdf39d&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>	
 	    </div>
 	    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2" style="padding-right: 0px;padding-left: 0px;">    
