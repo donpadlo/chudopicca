@@ -37,11 +37,16 @@ menu_array=[];
 							<div><b>Состав:</b>
 							<?php
 								$cnt=0;
+								$sostav="";
 								foreach ($pmenu["structure"] as $ids => $struc){
-									echo $struc;
+									$sostav=$sostav.$struc;
 									$cnt++;
-									if ($cnt!=count($pmenu["structure"])){echo ", ";};
+									if ($cnt!=count($pmenu["structure"])){$sostav=$sostav.", ";};
 								};
+								$sostav=trim($sostav);
+								$fullsostav=$sostav;
+								if (strlen($sostav)>50){$sostav=mb_substr($sostav,0,50);$sostav=$sostav."<..>";};
+								echo "<i data-toggle='tooltip' data-placement='top' title='$fullsostav'>$sostav</i>";
 							?>
 							</div>
 							<div class="container-fluid">
