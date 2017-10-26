@@ -117,19 +117,18 @@ menu_array=[];
 </div>	
 <div id="anim_picca" class="anim_picca">    
 </div>
-<script>
-     $('.simple-list-grid').simpleListGrid();
-// if ((device.mobile()==false)&(device.tablet()==false)){	 
-//    $('.simple-list-grid').simpleListGrid({
-//	'state': 'grid'
-//    });   
-//  } else {
-//      if (device.portrait()==true){
-//	  $('.simple-list-grid').simpleListGrid();
-//      } else {
-//	    $('.simple-list-grid').simpleListGrid({
-//		'state': 'grid'
-//	    });   	  
-//      };
-//  };
+<script>     
+ if ((device.mobile()==false)&(device.tablet()==false)){	 
+    $('.simple-list-grid').simpleListGrid({
+	'state': 'grid'
+    });   
+  } else {
+      if (device.portrait()==true){
+	  $('.simple-list-grid').simpleListGrid();
+      } else {
+	    $('.simple-list-grid').simpleListGrid({
+		'state': 'grid'
+	    });   	  
+      };
+  };
 </script>	 
