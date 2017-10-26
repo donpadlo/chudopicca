@@ -1,8 +1,9 @@
 body{
-	background-image: url(/controller/client/themes/bootstrap/img/wallpaper.png);
-	background-size: contain;
-	background-position: center;
-	background-repeat: repeat-y;
+    background-image: url(/controller/client/themes/bootstrap/img/wood.jpg);
+    background-size: inherit;
+    background-position: top;
+    background-repeat: initial;
+    background-attachment: fixed;
 }
 .logotitle{
 	z-index: 100001;	
