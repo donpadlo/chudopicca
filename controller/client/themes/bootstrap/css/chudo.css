@@ -76,11 +76,3 @@ body{
 .piccadescr{
     padding-top: 14px;
 }
-.mobile{
-	color: #d4d22d;
-	position: absolute;
-	top: 80px;
-	left: 150px;
-	font-size: xx-large;
-	text-shadow: 1px 1px 10px #1f222a, 0 0 1em #29271c;
-}
