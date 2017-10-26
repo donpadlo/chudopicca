@@ -131,7 +131,7 @@ function ZakazFinish(){
 							loader: true,        
 							loaderBg: '#9EC600'  
 						});
-						window.scrollTo(0, 0);
+						//window.scrollTo(0, 0);
 				  } else {
 					$("#list_cart").html(data);			  
 				  };

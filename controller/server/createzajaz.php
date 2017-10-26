@@ -1,6 +1,6 @@
 <?php
  include_once(WUO_ROOT.'/inc/lib/PHPMailerAutoload.php'); 
- $corder=file_get_contents(WUO_ROOT.'/orders.txt');
+ $corder=file_get_contents(WUO_ROOT.'/../orders.txt');
  $corder++;
  $backet=_POST("backet");
  $mobile=_POST("mobile");
