@@ -64,3 +64,11 @@
 <div id="widjet_cost" class="widjet_cost">
 </div>
 <a href="#" class="scrollup">Наверх</a>       
+<?php
+$wts="worktime=[]\r\n";
+foreach ($worktime as $key => $value) {
+    $start=$value[0];
+    $end=$value[1];
+  $wts=$wts."worktime[$key]={start:$start,end:$end};\r\n";
+};
+?>

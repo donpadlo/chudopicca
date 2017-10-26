@@ -139,9 +139,26 @@ function ZakazFinish(){
 		};
 	};	
 };
+function IsWorkTime(worktime){
+  var dt=new Date();
+  var w=dt.getDay();
+  if (typeof(worktime[w])!="undefined"){
+      if (dt.getHours()>=worktime[w].start&dt.getHours()<=worktime[w].end){
+	console.log("работаем!");
+	return true;  	  	  
+      } else {
+	console.log("в это время не работаем!");
+	return false;  	  
+      };      
+  } else {
+    console.log("в этот день недели не работаем!");
+    return false;  
+  };
+};
 function OpenCart(){        
  if (backet.length!=0){
         $("#list_cart").html("");
+	if (IsWorkTime(worktime)==true){
 		ht="";
 		ht=ht+'<table class="table table-striped table-hover table-condensed">';
 		ht=ht+'<thead>';
@@ -192,7 +209,10 @@ function OpenCart(){
 		ht=ht+'<div class="alert alert-warning"><strong>Внимание!</strong> Доставка осуществляется только по г.Вологда</div>';		
 		ht=ht+'<button type="button" onclick="ZakazFinish();" class="btn btn-info btn-sm form-control">Оформить заказ</button>';
 		$("#list_cart").html(ht);
-		$("#phone").mask("+7(999) 999-9999");		
+		$("#phone").mask("+7(999) 999-9999");	
+	    } else {
+		$("#list_cart").html('<div class="alert alert-warning"><strong>Внимание!</strong><br/>Доставка осуществляется только по г.Вологда.<br/>Часы работы:<br/>ВС-ЧТ с 10:00 до 23:00, ПТ-СБ с 10:00 до 01:00</div>');	
+	    };
         $("#dialog-choise-cart").dialog("open" );   
  };		
 };

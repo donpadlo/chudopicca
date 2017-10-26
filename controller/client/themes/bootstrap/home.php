@@ -16,6 +16,7 @@ menu_array=[];
 	 echo "menu_array[$id]={name:\"$name\",descr:\"$descr\",type:\"$type\",weight:[$wg],costs:[$cst]};\n\r"; 
  };
 ?>
+<?php echo $wts;?>
 </script>
 <div class="container-fluid">
 	<div class="row">	    
