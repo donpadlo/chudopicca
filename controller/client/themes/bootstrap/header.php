@@ -45,7 +45,7 @@ echo $wts;
 ?>    
 <div class="mobile_work" id="mobile_work">
     Работаем: с <?php echo $worktime[date("N")][0].":00 до ".$worktime[date("N")][1].":00"; ?>
-    <img  src="/controller/client/themes/bootstrap/img/phone-icon.png">
+    <img height="10px"  src="/controller/client/themes/bootstrap/img/phone-icon.png">
     <?php echo " : $mobile_site"; ?>
 </div>    
 <!-- Fixed navbar -->
