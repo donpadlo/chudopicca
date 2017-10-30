@@ -29,6 +29,7 @@ function AddToCart(id){
       bay.width=$("#weight_"+id).val();
       bay.cost=$("#cost_"+id).val();
 	  bay.name=menu_array[id].name;
+	  bay.type=menu_array[id].type;
 	  bay.descr=menu_array[id].descr;
 	  bay.count=1;
 	  //проверяем, а вдруг в корзине уже есть такая пицца, тогда просто добавим +1 к количеству
@@ -104,16 +105,18 @@ function ZakazFinish(){
 						loaderBg: '#9EC600'  
 					});
 		} else {
-			        mobile=$("#phone").val();
+			    mobile=$("#phone").val();
 				address=$("#address").val();
 				fromcart=fromcart.checked;
+				samo=samo.checked;
 				$("#list_cart").html('<div align=center><img src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет оформление заказа..</h2></div>');			  		    
 				window.scrollTo(0, 0);
 				$.post("index.php?route=/controller/server/createzajaz.php",{
 					backet: JSON.stringify(backet),
 					mobile:mobile,
 					address:address,
-					fromcart:fromcart
+					fromcart:fromcart,
+					samo:samo
 				},
 				  onAjaxSuccess
 				);				 
@@ -171,8 +174,27 @@ function OpenCart(){
 		ht=ht+'    <th></th>';
         ht=ht+'  </tr>';
         ht=ht+'</thead>';		
-		// перечисляем заказ	
-		  total=0;
+		// добавялем подарки если есть
+		total=0;
+		for (var i=0, len=backet.length; i<len; i++) {		    			
+			total=total+backet[i].cost*backet[i].count;		
+			if (backet[i].type=="present"){
+				backet.splice(i, 1);			
+			};			
+		};
+		if (total>600){			
+		      bay={};
+			  bay.id=99;
+			  bay.width="-";
+			  bay.cost=0;
+			  bay.name="Напиток в подарок";
+			  bay.type="present";
+			  bay.descr="Сок или лимонад";
+			  bay.count=1;
+			  backet[backet.length]=bay;
+			  console.log("-добавили подарок",backet[backet.length]);
+		};
+		// перечисляем заказ			  
 		  for (var i=0, len=backet.length; i<len; i++) {		    
 			ht=ht+'<tr>';
 			ht=ht+'<td>'+(i+1)+'</td>';
@@ -182,7 +204,6 @@ function OpenCart(){
 			{ht=ht+'<td>'+backet[i].width+'</td>'};
 			ht=ht+'<td>'+backet[i].count+'</td>';
 			summ=backet[i].cost*backet[i].count;
-			total=total+summ;
 			ht=ht+'<td>'+summ+'</td>';
 			ht=ht+'<td>';
 			ht=ht+'<div class="btn-group btn-group-xs">';
@@ -191,7 +212,7 @@ function OpenCart(){
 			ht=ht+'  <button type="button" onclick="RemoveFromBacket('+i+')" class="btn btn-default btn-group-xs"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
 			ht=ht+'</div>';
 			ht=ht+'</td>';
-			ht=ht+'</tr>';
+			ht=ht+'</tr>';			
 		 };	
 		ht=ht+"<tr><th></th><th>Всего</th><th></th><th></th><th>"+total+"<i class='fa fa-rub' aria-hidden='true'></i></th><th></th></tr>"; 
 		ht=ht+'</table>';
@@ -202,6 +223,11 @@ function OpenCart(){
 		ht=ht+'<div class="checkbox">';
 		ht=ht+'	<label>';
 		ht=ht+'		<input id="fromcart" name="fromcart" type="checkbox"> Оплата будет с пластиковой карты';
+		ht=ht+'	</label>';
+		ht=ht+'</div>';
+		ht=ht+'<div class="checkbox">';
+		ht=ht+'	<label>';
+		ht=ht+'		<input id="samo" name="samo" type="checkbox"> Самовывоз';
 		ht=ht+'	</label>';
 		ht=ht+'</div>';
 		ht=ht+'<label for="phone">Адрес доставки</label>';		

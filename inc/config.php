@@ -8,8 +8,10 @@ $worktime[1]=array(10,23);
 $worktime[2]=array(10,23); 
 $worktime[3]=array(10,23); 
 $worktime[4]=array(10,23); 
-$worktime[5]=array(10,23); 
-$worktime[6]=array(10,23); 
+$worktime[5]=array(10,24); 
+$worktime[6]=array(10,24); 
+$content_description="пицца,вологда,доставка,чудопицца";
+$mobile_site="70-17-70";
 
 //состав
   $menu=array();
@@ -30,9 +32,9 @@ $worktime[6]=array(10,23);
 	   "images"=>array("aromatnaya.png"),
   ];
   $menu[]=["name"=>"Домашняя",
-	   "descr"=>"Вкус домашней еды",
+	   "descr"=>"Почувствуй вкус домашней еды",
 	   "type"=>"main", //main or dop
-	   "structure"=>array("Соус пряный, свинина, шампиньоны, лука жареный, перец болгарский, томаты, сыр, зелень"),
+	   "structure"=>array("Соус пряный, свинина, шампиньоны, лук жареный, перец болгарский, томаты, сыр, зелень"),
 	   "weight"=>array("500","800"),
 	   "cost"=>array(370,430),   
 	   "images"=>array("domash.png"),
@@ -40,7 +42,7 @@ $worktime[6]=array(10,23);
   $menu[]=["name"=>"Закусочная",
 	   "descr"=>"Пицца которая придется вам по душе",
 	   "type"=>"main", //main or dop
-	   "structure"=>array("Соус пряный, грудинка свинная, буженина, томаты, перец болгарский, сыр, зелень"),
+	   "structure"=>array("Соус пряный, грудинка свиная, буженина, томаты, перец болгарский, сыр, зелень"),
 	   "weight"=>array("500","800"),
 	   "cost"=>array(370,430),   
 	   "images"=>array("zakusochnay.png"),
@@ -48,7 +50,7 @@ $worktime[6]=array(10,23);
   $menu[]=["name"=>"Заречная",
 	   "descr"=>"Отличное блюдо на каждый день",
 	   "type"=>"main", //main or dop
-	   "structure"=>array("Соус пряный, филе куринное, перец болгарский, томаты, сыр, зелень"),
+	   "structure"=>array("Соус пряный, грудка куриная, перец болгарский, томаты, сыр, зелень"),
 	   "weight"=>array("500","800"),
 	   "cost"=>array(370,400),   
 	   "images"=>array("zarechnaya.png"),
@@ -96,7 +98,7 @@ $worktime[6]=array(10,23);
     $menu[]=["name"=>"Рыбная",
 	   "descr"=>"Рыбный день",
 	   "type"=>"main", //main or dop
-	   "structure"=>array("Соус пряный, лососб креветки, горбуша, томаты, кунжут, сыр"),
+	   "structure"=>array("Соус пряный, лосось креветки, горбуша, томаты, кунжут, сыр"),
 	   "weight"=>array("500","800"),
 	   "cost"=>array(490,550),   
 	   "images"=>array("ribnaya.png"),
@@ -112,7 +114,7 @@ $worktime[6]=array(10,23);
   $menu[]=["name"=>"Сказка",
 	   "descr"=>"Сказочно вкусная пицца",
 	   "type"=>"main", //main or dop
-	   "structure"=>array("Соус пряный, ветчина, бекон, щампиньоны, корнишоны, лук расный, томаты, сыр, зелень"),
+	   "structure"=>array("Соус пряный, ветчина, бекон, щампиньоны, корнишоны, лук красный, томаты, сыр, зелень"),
 	   "weight"=>array("500","800"),
 	   "cost"=>array(370,430),    
 	   "images"=>array("skazka.png"),
@@ -120,7 +122,7 @@ $worktime[6]=array(10,23);
   $menu[]=["name"=>"Сырная",
 	   "descr"=>"Для тех кто любит сыр",
 	   "type"=>"main", //main or dop
-	   "structure"=>array("Соус пряный, сыр гауда, сыр моцарелла, сыр пармезан, сыр рокфотн"),
+	   "structure"=>array("Соус пряный, сыр гауда, сыр моцарелла, сыр пармезан, сыр рокфорти"),
 	   "weight"=>array("500","800"),
 	   "cost"=>array(370,430),    
 	   "images"=>array("onlychees.png"),
@@ -158,9 +160,9 @@ $worktime[6]=array(10,23);
 	   "images"=>array("semeyanaya.png"),
   ];
   $menu[]=["name"=>"Сладкоежка",
-	   "descr"=>"Сладкаяпица для детей и их родителей",
+	   "descr"=>"Сладкая пицца для детей и их родителей",
 	   "type"=>"main", //main or dop
-	   "structure"=>array("Соус клубничный, соус сметанный, клбуника, персики, груша, киви, ананас, посыпка кондитерская, топинг карамельный"),
+	   "structure"=>array("Сироп клубничный, соус сметанный, клбуника, персики, груша, киви, ананас, посыпка кондитерская, топинг карамельный"),
 	   "weight"=>array("700"),
 	   "cost"=>array(400),    
 	   "images"=>array("sladkoezhka.png"),

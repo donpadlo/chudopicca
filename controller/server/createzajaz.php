@@ -6,6 +6,7 @@
  $mobile=_POST("mobile");
  $address=_POST("address");
  $fromcart=_POST("fromcart");
+ $samo=_POST("samo");
  if ($backet!=""){
 	 $backet=json_decode($backet);
 		$mail = new PHPMailer;		
@@ -52,6 +53,7 @@
 		$ht=$ht."Телефон: $mobile<br/>";
 		$ht=$ht."Адрес: $address<br/>";
 		$ht=$ht."Оплата с карточки: $fromcart<br/>";
+		$ht=$ht."Самовывоз: $samo<br/>";		
 		$mail->Body    = $ht;		
 		if(!$mail->send()) {			
 			echo 'Mailer Error: ' . $mail->ErrorInfo;

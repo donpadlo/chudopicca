@@ -13,7 +13,7 @@
 		<script>
 		    function VK_Widget_Init(){
 			document.getElementById('vk_widget').innerHTML = '<div id="vk_groups"></div>';
-			VK.Widgets.Group("vk_groups", {mode: 0, width: "auto", height: "400"}, 453569907);
+			VK.Widgets.Group("vk_groups", {mode: 0, width: "auto", height: "400"}, 155678039);
 		    };
 		    window.addEventListener('load', VK_Widget_Init, false);
 		    window.addEventListener('resize', VK_Widget_Init, false);
@@ -23,7 +23,7 @@
 		<script>
 		    function VK_Widget_Init(){
 			document.getElementById('vk_widget1').innerHTML = '<div id="vk_groups1"></div>';
-			VK.Widgets.Group("vk_groups1", {mode: 4, width: "auto", height: "400"}, 453569907);
+			VK.Widgets.Group("vk_groups1", {mode: 4, width: "auto", height: "400"}, 155678039);
 		    };
 		    window.addEventListener('load', VK_Widget_Init, false);
 		    window.addEventListener('resize', VK_Widget_Init, false);
@@ -31,4 +31,8 @@
 	    </div>
     </div>
 </div> 
+<ol class="breadcrumb">
+  <li><a href="https://чудопицца.рф">Главная</a></li>
+  <li class="active"><a href="#">О нас</a></li>  
+</ol>
 

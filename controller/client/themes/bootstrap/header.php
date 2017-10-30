@@ -10,7 +10,7 @@
 <head id="idheader">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Сайт ЧудоПицца">
+	<meta name="description" content="<?php echo $content_description?>">
 	<meta name="author" content="(c) 2017 by Gribov Pavel">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title><?php echo $cfg->sitename;?></title>
@@ -33,6 +33,20 @@
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery.toast.min.js"></script>			
 </head>
 <body>
+<?php
+$wts="<script>worktime=[]\r\n";
+foreach ($worktime as $key => $value) {
+    $start=$value[0];
+    $end=$value[1];
+  $wts=$wts."worktime[$key]={start:$start,end:$end};\r\n";
+};
+$wts=$wts."</script>";
+echo $wts;
+?>    
+<div class="mobile_work" id="mobile_work">
+    Время работы: с <?php echo $worktime[date("N")][0].":00 до ".$worktime[date("N")][1].":00"; ?>
+    <?php echo " Телефон: $mobile_site"; ?>
+</div>    
 <!-- Fixed navbar -->
 <div class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
@@ -48,6 +62,8 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
 	<li <?php if ($content_page=="home"){echo "class=\"active\"";};?>><a href="index.php?content_page=home">Меню</a></li>
+    <li <?php if ($content_page=="action"){echo "class=\"active\"";};?>><a href="index.php?content_page=action">Акции</a></li>
+	<li <?php if ($content_page=="oferta"){echo "class=\"active\"";};?>><a href="index.php?content_page=oferta">Оферта</a></li>	
 	<li <?php if ($content_page=="about"){echo "class=\"active\"";};?>><a href="index.php?content_page=about">Где мы</a></li>
 	</li>
       </ul>
@@ -64,11 +80,3 @@
 <div id="widjet_cost" class="widjet_cost">
 </div>
 <a href="#" class="scrollup">Наверх</a>       
-<?php
-$wts="worktime=[]\r\n";
-foreach ($worktime as $key => $value) {
-    $start=$value[0];
-    $end=$value[1];
-  $wts=$wts."worktime[$key]={start:$start,end:$end};\r\n";
-};
-?>

@@ -5,6 +5,12 @@ body{
     background-repeat: initial;
     background-attachment: fixed;
 }
+.mobile_work {
+text-align: right;
+position: absolute;
+top: 0px;
+width: 90%;
+}
 .logotitle{
 	z-index: 100001;	
 	text-shadow: 1px 1px 2px #171717, 0 0 1em #0a0606;  	
@@ -16,6 +22,14 @@ body{
 	position: absolute;
 	background-image: url("/controller/client/themes/bootstrap/img/masha.png");
 	background-repeat: round;
+	z-index: 1;
+}
+.ggpay{
+	height: 80px;
+	width: 100px;
+	left: 110px;
+	top: -14px;
+	position: absolute;
 	z-index: 1;
 }
 .scrollup {
@@ -59,6 +73,7 @@ body{
 	background-color: #ffffff;
 }
 .popshow{
+	 font-family: monospace;
      border-bottom: 1px dashed #000080; 
      cursor:pointer;
 }
