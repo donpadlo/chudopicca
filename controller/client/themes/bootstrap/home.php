@@ -35,7 +35,7 @@ menu_array=[];
 					<li class="picca_li">
 						<div class="titlepicca"><b><?php echo $pmenu["name"];?></b></div>
 						<div class="thumb" id="trumb_<?php echo $id?>">
-						    <img width="100px" id="<?php echo "pic_$id";?>" src="/controller/client/themes/bootstrap/images/<?php echo $pmenu["images"][0];?>" alt="<?php echo $pmenu["descr"];?>" />
+						    <img width="100" id="<?php echo "pic_$id";?>" src="/controller/client/themes/bootstrap/images/<?php echo $pmenu["images"][0];?>" alt="<?php echo $pmenu["descr"];?>" />
 						</div>
 						<div class="data piccadescr">							
 							<div><?php echo $pmenu["descr"];?></div>							
