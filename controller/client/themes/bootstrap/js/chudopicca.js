@@ -88,6 +88,10 @@ function MinusFromBacket(id){
   backetRefresh();
   OpenCart();
 };
+function OpenCloseBacket(){
+  backetRefresh();
+  OpenCart();    
+};
 function ZakazFinish(){
 	if (backet.length!=0){
 		//сначала проверяем, а всё ли заполнено?
@@ -160,6 +164,11 @@ function IsWorkTime(worktime){
 };
 function OpenCart(){        
  if (backet.length!=0){
+        if (typeof($("#phone").val())=="undefined"){phonec=""} else {phonec=$("#phone").val();};
+	if (typeof($("#address").val())=="undefined"){addressc=""} else {addressc=$("#address").val();};
+	if (typeof($("#fromcart").val())=="undefined"){fromcartc=false} else {fromcartc=fromcart.checked;};
+	if (typeof($("#samo").val())=="undefined"){samoc=false} else {samoc=samo.checked;};
+	
         $("#list_cart").html("");
 	if (IsWorkTime(worktime)==true){
 		ht="";
@@ -189,10 +198,21 @@ function OpenCart(){
 			  bay.cost=0;
 			  bay.name="Напиток в подарок";
 			  bay.type="present";
-			  bay.descr="Сок или лимонад";
+			  bay.descr="Оператор уточнит какой подарок вы хотите";
 			  bay.count=1;
 			  backet[backet.length]=bay;
 			  console.log("-добавили подарок",backet[backet.length]);
+		};
+		if (samoc==true){
+			  bay={};
+			  bay.id=100;
+			  bay.width="-";
+			  bay.cost=-50;
+			  bay.name="Скидка за самовывоз";
+			  bay.type="present";
+			  bay.descr="";
+			  bay.count=1;
+			  backet[backet.length]=bay;
 		};
 		// перечисляем заказ			  
 		  for (var i=0, len=backet.length; i<len; i++) {		    
@@ -227,7 +247,7 @@ function OpenCart(){
 		ht=ht+'</div>';
 		ht=ht+'<div class="checkbox">';
 		ht=ht+'	<label>';
-		ht=ht+'		<input id="samo" name="samo" type="checkbox"> Самовывоз';
+		ht=ht+'		<input id="samo" onclick="OpenCloseBacket();" name="samo" type="checkbox"> Самовывоз';
 		ht=ht+'	</label>';
 		ht=ht+'</div>';
 		ht=ht+'<label for="phone">Адрес доставки</label>';		
@@ -236,6 +256,10 @@ function OpenCart(){
 		ht=ht+'<button type="button" onclick="ZakazFinish();" class="btn btn-info btn-sm form-control">Оформить заказ</button>';
 		$("#list_cart").html(ht);
 		$("#phone").mask("+7(999) 999-9999");	
+		$("#address").val(addressc);
+		$("#phone").val(phonec);
+		samo.checked=samoc;
+		fromcart.checked=fromcartc;
 	    } else {
 		$("#list_cart").html('<div class="alert alert-warning"><strong>Внимание!</strong><br/>Доставка осуществляется только по г.Вологда.<br/>Часы работы:<br/>ВС-ЧТ с 10:00 до 23:00, ПТ-СБ с 10:00 до 01:00</div>');	
 	    };
