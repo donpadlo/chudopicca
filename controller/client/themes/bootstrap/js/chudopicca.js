@@ -113,7 +113,7 @@ function ZakazFinish(){
 				address=$("#address").val();
 				fromcart=fromcart.checked;
 				samo=samo.checked;
-				$("#list_cart").html('<div align=center><img alt="animation" src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет оформление заказа..</h2></div>');			  		    
+				$("#list_cart").html('<div style="align:center;"><img alt="animation" src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет оформление заказа..</h2></div>');			  		    
 				window.scrollTo(0, 0);
 				$.post("index.php?route=/controller/server/createzajaz.php",{
 					backet: JSON.stringify(backet),

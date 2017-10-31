@@ -96,7 +96,7 @@ menu_array=[];
 		</div>
 	</div>
 	    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2" style="padding-right: 0px;padding-left: 0px;">    		
-		<div id="vk_widget"><div align=center><img alt="animation" src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет загрузка страницы..</h2></div></div>
+		<div id="vk_widget"><div style="align:center;"><img alt="animation" src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет загрузка страницы..</h2></div></div>
 		<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
 		<script>
 		    function VK_Widget_Init(){
@@ -106,7 +106,7 @@ menu_array=[];
 		    window.addEventListener('load', VK_Widget_Init, false);
 		    window.addEventListener('resize', VK_Widget_Init, false);
 		</script>		
-		<div id="vk_widget1"><div align=center><img alt="animation" src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет загрузка страницы..</h2></div></div>
+		<div id="vk_widget1"><div style="align:center;"><img alt="animation" src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет загрузка страницы..</h2></div></div>
 		<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
 		<script>
 		    function VK_Widget_Init(){
