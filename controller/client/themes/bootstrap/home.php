@@ -134,7 +134,7 @@ VK.Widgets.CommunityMessages("vk_community_messages", 155678039, {tooltipButtonT
 	'state': 'grid'
     });   
   } else {
-	  $("#ggpay").show();
+      if (fromapp=="true") {$("#ggpay").show();};
       if (device.portrait()==true){
 	  $('.simple-list-grid').simpleListGrid();	  
       } else {		
