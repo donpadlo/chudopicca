@@ -1,3 +1,11 @@
+.navbar-default{   
+    background-color: #f5c056 !important;
+    border-color: #080707 !important;
+    border-radius: 10px !important;
+}
+.navbar-brand{
+  padding: 12px 15px !important;  
+}
 body{
     background-image: url(/controller/client/themes/bootstrap/img/wood.jpg);
     background-size: inherit;
