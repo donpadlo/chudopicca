@@ -1,4 +1,6 @@
 <?php
+$content_page = (isset($_GET['content_page'])) ? $_GET['content_page'] : 'home';
+
 $cfg = new Tconfig;
 $cfg->theme="bootstrap";
 $cfg->sitename="Чудная пицца по отличной цене. Вологда, доставка пиццы на дом";
