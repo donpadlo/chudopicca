@@ -64,10 +64,9 @@ echo $wts;
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
 	<li <?php if ($content_page=="home"){echo "class=\"active\"";};?>><a href="index.php?content_page=home<?php echo"&fromapp=$fromapp";?>">Меню</a></li>
-    <li <?php if ($content_page=="action"){echo "class=\"active\"";};?>><a href="index.php?content_page=action<?php echo"&fromapp=$fromapp";?>">Акции</a></li>
+	<li <?php if ($content_page=="action"){echo "class=\"active\"";};?>><a href="index.php?content_page=action<?php echo"&fromapp=$fromapp";?>">Акции</a></li>
 	<li <?php if ($content_page=="oferta"){echo "class=\"active\"";};?>><a href="index.php?content_page=oferta<?php echo"&fromapp=$fromapp";?>">Оферта</a></li>	
-	<li <?php if ($content_page=="about"){echo "class=\"active\"";};?>><a href="index.php?content_page=about<?php echo"&fromapp=$fromapp";?>">Где мы</a></li>
-	</li>
+	<li <?php if ($content_page=="about"){echo "class=\"active\"";};?>><a href="index.php?content_page=about<?php echo"&fromapp=$fromapp";?>">Где мы</a></li>	
       </ul>
     </div><!--/.nav-collapse -->
   </div>
