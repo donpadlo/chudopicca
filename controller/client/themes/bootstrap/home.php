@@ -35,7 +35,7 @@ menu_array=[];
 					<li class="picca_li">
 						<div class="titlepicca"><b><?php echo $pmenu["name"];?></b></div>
 						<div class="thumb" id="trumb_<?php echo $id?>">
-						    <img  alt="меню" width="100" id="<?php echo "pic_$id";?>" src="/controller/client/themes/bootstrap/images/<?php echo $pmenu["images"][0];?>" alt="<?php echo $pmenu["descr"];?>" />
+						    <img  width="100" id="<?php echo "pic_$id";?>" src="/controller/client/themes/bootstrap/images/<?php echo $pmenu["images"][0];?>" alt="<?php echo $pmenu["descr"];?>" />
 						</div>
 						<div class="data piccadescr">							
 							<div><?php echo $pmenu["descr"];?></div>							
@@ -50,7 +50,7 @@ menu_array=[];
 								};
 								$sostav=trim($sostav);
 								$fullsostav=$sostav;
-								if (strlen($sostav)>=50){$sostav=mb_substr($sostav,0,50);$sostav=$sostav."<..>";};
+								if (strlen($sostav)>=50){$sostav=mb_substr($sostav,0,50);$sostav=$sostav."..";};
 								$ressost=$ressost. "<i class='popshow' id='pop$id' data-toggle='popover' data-placement='top' data-content='$fullsostav'>$sostav</i>";
 								$ressost=$ressost. "<script>$('#pop$id').popover();</script>";
 								if ($sostav!=""){
