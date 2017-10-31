@@ -117,7 +117,7 @@ menu_array=[];
 		    window.addEventListener('resize', VK_Widget_Init, false);
 		</script>		
 <script type="text/javascript" src="//vk.com/js/api/openapi.js?150"></script>
-
+<h1>Чудо Пицца. Всегда отличный вкус.</h1>
 <!-- VK Widget -->
 <div id="vk_community_messages"></div>
 <script type="text/javascript">
