@@ -38,7 +38,7 @@ width: 90%;
     opacity:0.3;
     position:fixed;
     bottom:50px;
-    right:100px;
+    right:10px;
     display:none;
     text-indent:-9999px;
     background: url('/controller/client/themes/bootstrap/img/icon_top.png') no-repeat;
@@ -55,14 +55,27 @@ width: 90%;
 	cursor:pointer;
 }
 .widjet_cost{
-	cursor:pointer;
-	top: 30px;
+    cursor: pointer;
+    top: 32px;
     position: absolute;
-    right: 90px;
-    font-size: x-large;
-    color: greenyellow;
+    right: 140px;
+    font-size: large;
     text-align: center;
-    text-shadow: 1px 1px 2px #171717, 0 0 1em #0a0606;  	
+    opacity: 0.8;
+}
+.widjet_cost_buttom {
+    width:40px;
+    height:40px;
+    opacity:0.3;
+    position:fixed;
+    bottom:50px;
+    right:60px;
+    display:none;
+    text-indent:-9999px;
+    background: url('/controller/client/themes/bootstrap/img/purchase.png') no-repeat;
+    z-index: 10000;
+    background-size: cover;
+    cursor:pointer;
 }
 .anim_picca {
     top: 125px;

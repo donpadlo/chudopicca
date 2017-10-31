@@ -77,8 +77,8 @@ echo $wts;
     </div>        
 </div>
 <div id="widjet_cart" class="widjet_cart">
-    <img id="imgcart" onclick="OpenCart();" height="40px" width="40px" src="controller/client/themes/bootstrap/img/backet_empty.png" />
+    <img id="imgcart" onclick="OpenCart();" height="40px" width="40px" src="controller/client/themes/bootstrap/img/purchase.png" />
 </div>
-<div id="widjet_cost" class="widjet_cost">
-</div>
+<span id="widjet_cost" class="label label-success widjet_cost"></span>
 <a href="#" class="scrollup">Наверх</a>       
+<span onclick="OpenCart()" class="widjet_cost_buttom"></span>

@@ -270,8 +270,10 @@ $(document).ready(function() {
         $(window).scroll(function(){
 	    if ($(this).scrollTop() > 100) {
 		$('.scrollup').fadeIn();
+		$('.widjet_cost_buttom').fadeIn();
 	    } else {
 		$('.scrollup').fadeOut();
+		$('.widjet_cost_buttom').fadeOut();
 	    }
 	});
    backet=JSON.parse(localStorage.getItem("backet")); //корзина покупок
