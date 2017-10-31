@@ -22,7 +22,7 @@ menu_array=[];
 	    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-10" style="padding-right: 0px;padding-left: 0px;">    
 		<div class="simple-list-grid">
 		    <div id="masha_set" class="masha_set"></div>
-			<div id="ggpay" name="ggpay" style="display: none;	height: 80px;width: 100px;left: 110px;top: -14px;position: absolute;z-index: 1;">
+			<div id="ggpay"  style="display: none;	height: 80px;width: 100px;left: 110px;top: -14px;position: absolute;z-index: 1;">
 			<a  href="https://play.google.com/store/apps/details?id=xn__p1ai.xn__80ahmxfvzac.chudo&hl=ru">
 			  <img alt="гуглплэй" title="Закажите через приложение и участвуйте в акциях!" src="/controller/client/themes/bootstrap/img/googleplay.png">
 			</a>
@@ -78,9 +78,9 @@ menu_array=[];
 									  <input type="hidden" id = "cost_<?php echo $id?>" value="<?php echo $pmenu["cost"][0]; ?>">
 								    </div>    
 								    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="padding-right: 0px;padding-left: 0px;">    
-									<div  align="center" >										
+									<div style="align:center;" >										
 										  <button type="button" onclick="AddToCart(<?php echo $id?>);OpenCart();" class="btn btn-default btn-sm form-control">Заказать</button>
-										  <button type="button" onclick="AddToCart(<?php echo $id?>);"class="btn btn-info btn-sm form-control">В корзину</button>										
+										  <button type="button" onclick="AddToCart(<?php echo $id?>);" class="btn btn-info btn-sm form-control">В корзину</button>										
 									</div>
 
 								    </div>    
