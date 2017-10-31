@@ -183,7 +183,7 @@ function OpenCart(){
 		ht=ht+'    <th></th>';
         ht=ht+'  </tr>';
         ht=ht+'</thead>';		
-		// добавялем подарки если есть
+		// добавялем подарки если есть		
 		total=0;
 		for (var i=0, len=backet.length; i<len; i++) {		    			
 			total=total+backet[i].cost*backet[i].count;		
@@ -214,8 +214,10 @@ function OpenCart(){
 			  bay.count=1;
 			  backet[backet.length]=bay;
 		};
-		// перечисляем заказ			  
-		  for (var i=0, len=backet.length; i<len; i++) {		    
+		// перечисляем заказ	
+		  total=0;
+		  for (var i=0, len=backet.length; i<len; i++) {
+		        total=total+backet[i].cost*backet[i].count;		
 			ht=ht+'<tr>';
 			ht=ht+'<td>'+(i+1)+'</td>';
 			ht=ht+'<td><strong>'+backet[i].name+'</strong><br/>'+backet[i].descr+'</td>';
