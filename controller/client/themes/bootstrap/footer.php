@@ -8,7 +8,7 @@ $time = $time_end - $time_start;
 ?>
       <footer class="">
           <div class="container-fluid row-fluid">
-                <div class="col-xs-12 col-md-12 col-sm-12" align="center">
+	      <div class="col-xs-12 col-md-12 col-sm-12" style="align:center;">
                     <p>&copy; <a href="http://грибовы.рф" target="_blank"> 2017-<?php echo date("Y");?></a>. Собрано за <?php echo "$time";?>сек.</p>
                 </div>
               </div>
