@@ -121,7 +121,9 @@ menu_array=[];
 <!-- VK Widget -->
 <div id="vk_community_messages"></div>
 <script type="text/javascript">
-VK.Widgets.CommunityMessages("vk_community_messages", 155678039, {tooltipButtonText: "Хотите заказать но не знаете как?"});
+    if (fromapp!="true") {
+	VK.Widgets.CommunityMessages("vk_community_messages", 155678039, {tooltipButtonText: "Хотите заказать но не знаете как?"});
+    };
 </script>
 	    </div>   	    
 	</div>
@@ -134,7 +136,9 @@ VK.Widgets.CommunityMessages("vk_community_messages", 155678039, {tooltipButtonT
 	'state': 'grid'
     });   
   } else {
-      if (fromapp=="true") {$("#ggpay").show();};
+      if (fromapp!="true") {
+	  $("#ggpay").show();
+      };
       if (device.portrait()==true){
 	  $('.simple-list-grid').simpleListGrid();	  
       } else {		
