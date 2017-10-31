@@ -1,7 +1,7 @@
 <?php
 $cfg = new Tconfig;
 $cfg->theme="bootstrap";
-$cfg->sitename="Чудная пицца по отличной цене";
+$cfg->sitename="Чудная пицца по отличной цене. Вологда, доставка пиццы на дом";
 $worktime=array();
 $worktime[0]=array(10,23); 
 $worktime[1]=array(10,23); 
@@ -10,7 +10,7 @@ $worktime[3]=array(10,23);
 $worktime[4]=array(10,23); 
 $worktime[5]=array(10,24); 
 $worktime[6]=array(10,24); 
-$content_description="пицца,вологда,доставка,чудопицца";
+$content_description="пицца,вологда,доставка,чудопицца,быстро,на дом,оплата по безналу,с карточки";
 $mobile_site="70-17-70";
 
 //состав
