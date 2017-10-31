@@ -24,7 +24,7 @@ menu_array=[];
 		    <div id="masha_set" class="masha_set"></div>
 			<div id="ggpay" name="ggpay" style="display: none;	height: 80px;width: 100px;left: 110px;top: -14px;position: absolute;z-index: 1;">
 			<a  href="https://play.google.com/store/apps/details?id=xn__p1ai.xn__80ahmxfvzac.chudo&hl=ru">
-			  <img title="Закажите через приложение и участвуйте в акциях!" src="/controller/client/themes/bootstrap/img/googleplay.png">
+			  <img alt="гуглплэй" title="Закажите через приложение и участвуйте в акциях!" src="/controller/client/themes/bootstrap/img/googleplay.png">
 			</a>
 			</div>			
 			<ul class="list-grid-ul">
@@ -35,7 +35,7 @@ menu_array=[];
 					<li class="picca_li">
 						<div class="titlepicca"><b><?php echo $pmenu["name"];?></b></div>
 						<div class="thumb" id="trumb_<?php echo $id?>">
-						    <img width="100" id="<?php echo "pic_$id";?>" src="/controller/client/themes/bootstrap/images/<?php echo $pmenu["images"][0];?>" alt="<?php echo $pmenu["descr"];?>" />
+						    <img  alt="меню" width="100" id="<?php echo "pic_$id";?>" src="/controller/client/themes/bootstrap/images/<?php echo $pmenu["images"][0];?>" alt="<?php echo $pmenu["descr"];?>" />
 						</div>
 						<div class="data piccadescr">							
 							<div><?php echo $pmenu["descr"];?></div>							
@@ -96,7 +96,7 @@ menu_array=[];
 		</div>
 	</div>
 	    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2" style="padding-right: 0px;padding-left: 0px;">    		
-		<div id="vk_widget"><div align=center><img src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет загрузка страницы..</h2></div></div>
+		<div id="vk_widget"><div align=center><img alt="animation" src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет загрузка страницы..</h2></div></div>
 		<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
 		<script>
 		    function VK_Widget_Init(){
@@ -106,7 +106,7 @@ menu_array=[];
 		    window.addEventListener('load', VK_Widget_Init, false);
 		    window.addEventListener('resize', VK_Widget_Init, false);
 		</script>		
-		<div id="vk_widget1"><div align=center><img src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет загрузка страницы..</h2></div></div>
+		<div id="vk_widget1"><div align=center><img alt="animation" src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет загрузка страницы..</h2></div></div>
 		<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
 		<script>
 		    function VK_Widget_Init(){

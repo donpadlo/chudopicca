@@ -46,7 +46,7 @@ echo $wts;
 ?>    
 <div class="mobile_work" id="mobile_work">
     Работаем: с <?php echo $worktime[date("N")][0].":00 до ".$worktime[date("N")][1].":00"; ?>
-    <img height="16"  src="/controller/client/themes/bootstrap/img/phone-icon.png">
+    <img alt="телефон" height="16"  src="/controller/client/themes/bootstrap/img/phone-icon.png">
     <?php echo " : $mobile_site"; ?>
 </div>    
 <!-- Fixed navbar -->
@@ -59,7 +59,7 @@ echo $wts;
 	<span class="icon-bar"></span>
 	<span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img class="logotitle" src="/controller/client/themes/bootstrap/img/chudopicca.png"></a>
+      <a class="navbar-brand" href="#"><img alt="логотип" class="logotitle" src="/controller/client/themes/bootstrap/img/chudopicca.png"></a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -77,7 +77,7 @@ echo $wts;
     </div>        
 </div>
 <div id="widjet_cart" class="widjet_cart">
-    <img id="imgcart" onclick="OpenCart();" height="40" width="40" src="controller/client/themes/bootstrap/img/purchase.png" />
+    <img alt="корзина" id="imgcart" onclick="OpenCart();" height="40" width="40" src="controller/client/themes/bootstrap/img/purchase.png" />
 </div>
 <span id="widjet_cost" class="label label-success widjet_cost"></span>
 <a href="#" class="scrollup">Наверх</a>       
