@@ -115,16 +115,22 @@ menu_array=[];
 		    };
 		    window.addEventListener('load', VK_Widget_Init, false);
 		    window.addEventListener('resize', VK_Widget_Init, false);
-		</script>		
-<script type="text/javascript" src="//vk.com/js/api/openapi.js?150"></script>
-<h1>Чудо Пицца. Всегда отличный вкус.</h1>
-<!-- VK Widget -->
-<div id="vk_community_messages"></div>
-<script type="text/javascript">
-    if (fromapp!="true") {
-	VK.Widgets.CommunityMessages("vk_community_messages", 155678039, {tooltipButtonText: "Хотите заказать но не знаете как?"});
-    };
-</script>
+		</script>
+	    <!-- Rating@Mail.ru logo -->
+	    <a href="https://top.mail.ru/jump?from=2938393">
+	    <img src="//top-fwz1.mail.ru/counter?id=2938393;t=617;l=1" 
+	    style="border:0;" height="40" width="88" alt="Рейтинг@Mail.ru" /></a>
+	    <!-- //Rating@Mail.ru logo -->
+		
+	    <script type="text/javascript" src="//vk.com/js/api/openapi.js?150"></script>
+	    <h1>Чудо Пицца. Всегда отличный вкус.</h1>
+	    <!-- VK Widget -->
+	    <div id="vk_community_messages"></div>
+	    <script type="text/javascript">
+		if (fromapp!="true") {
+		    VK.Widgets.CommunityMessages("vk_community_messages", 155678039, {tooltipButtonText: "Хотите заказать но не знаете как?"});
+		};
+	    </script>
 	    </div>   	    
 	</div>
 </div>	
