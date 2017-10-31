@@ -1,3 +1,5 @@
+Allow From All
+DirectoryIndex index.php
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www.xn--80ahmxfvzac.xn--p1ai$ [NC]
 RewriteRule ^(.*)$ https://xn--80ahmxfvzac.xn--p1ai/$1 [R=301,L]
