@@ -38,6 +38,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, колбаски охотничьи, ветчина, колбаса п/к, шампиньоны, перец чили, томаты, сыр"),
 	   "weight"=>array("500","800"),
+	   "sous"=>array("Сырный","Кетчуп"),      
 	   "cost"=>array(370,430),   
 	   "images"=>array("appetit.png"),
   ];
@@ -46,6 +47,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, колбаса сырокопченая, томаты, перец чили, сыр, зелень"),
 	   "weight"=>array("500","700"),
+	   "sous"=>array("Сырный","Кетчуп"),      
 	   "cost"=>array(400,460),   
 	   "images"=>array("aromatnaya.png"),
   ];
@@ -54,6 +56,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, свинина, шампиньоны, лук жареный, перец болгарский, томаты, сыр, зелень"),
 	   "weight"=>array("500","800"),
+	   "sous"=>array("Сырный","Кетчуп"),      
 	   "cost"=>array(370,430),   
 	   "images"=>array("domash.png"),
   ];
@@ -62,6 +65,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, грудинка свиная, буженина, томаты, перец болгарский, сыр, зелень"),
 	   "weight"=>array("500","800"),
+	   "sous"=>array("Сырный","Кетчуп"),      
 	   "cost"=>array(370,430),   
 	   "images"=>array("zakusochnay.png"),
   ];
@@ -70,6 +74,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, грудка куриная, перец болгарский, томаты, сыр, зелень"),
 	   "weight"=>array("500","800"),
+	   "sous"=>array("Сырный","Кетчуп"),      
 	   "cost"=>array(370,400),   
 	   "images"=>array("zarechnaya.png"),
   ];
@@ -78,6 +83,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, колбаски охотничьи, ветчина, грудка копченая, шампиньоны, перец болгарский, томаты, сыр, зелень"),
 	   "weight"=>array("500","800"),
+	   "sous"=>array("Сырный","Кетчуп"),	
 	   "cost"=>array(370,430),   
 	   "images"=>array("zastolnaya.png"),
   ];
@@ -86,6 +92,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, колбаски охоничьи, колбаса п/к, грудка коченая, грудинка свиная, корнишоны, перец болгарский, томаты, сыр, зелень. В бортах - охотничьи колбаски"),
 	   "weight"=>array("800"),
+	   "sous"=>array("Сырный","Кетчуп"),	
 	   "cost"=>array(490),   
 	   "images"=>array("knyazheskaya.png"),
   ];
@@ -94,6 +101,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, ветчина, колбаса п/к, шампиньоны, томаты, перец болгарский, сыр, зелень"),
 	   "weight"=>array("500","800"),
+	   "sous"=>array("Сырный","Кетчуп"),	
 	   "cost"=>array(370,430),   
 	   "images"=>array("lybitel.png"),
   ];
@@ -102,6 +110,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, томаты, сыр, зелень"),
 	   "weight"=>array("500","800"),
+	   "sous"=>array("Сырный","Кетчуп"),	
 	   "cost"=>array(330,390),   
 	   "images"=>array("margarita.png"),
   ];
@@ -110,6 +119,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, томаты, перец болгарский, брокколи, цветная капуста, фасоль, горошек зеленый, сыр, зелень"),
 	   "weight"=>array("600"),
+	   "sous"=>array("Сырный","Кетчуп"),
 	   "cost"=>array(370),   
 	   "images"=>array("ovoshnaya.png"),
   ];
@@ -118,6 +128,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, лосось креветки, горбуша, томаты, кунжут, сыр"),
 	   "weight"=>array("500","800"),
+	   "sous"=>array("Сырный","Кетчуп"),
 	   "cost"=>array(490,550),   
 	   "images"=>array("ribnaya.png"),
   ];
@@ -126,6 +137,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, говядина вареная, бекон, грудка копченая, шампиньоны, перец болгарский, томаты, сыр, зелень"),
 	   "weight"=>array("500","800"),
+      	   "sous"=>array("Сырный","Кетчуп"),
 	   "cost"=>array(390,450),    
 	   "images"=>array("severnaya.png"),
   ];
@@ -134,6 +146,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, ветчина, бекон, щампиньоны, корнишоны, лук красный, томаты, сыр, зелень"),
 	   "weight"=>array("500","800"),
+      	   "sous"=>array("Сырный","Кетчуп"),
 	   "cost"=>array(370,430),    
 	   "images"=>array("skazka.png"),
   ];
@@ -142,6 +155,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, сыр гауда, сыр моцарелла, сыр пармезан, сыр рокфорти"),
 	   "weight"=>array("500","800"),
+      	   "sous"=>array("Сырный","Кетчуп"),
 	   "cost"=>array(370,430),    
 	   "images"=>array("onlychees.png"),
   ];
@@ -150,6 +164,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, ветчина, колбаса вареная, корнишоны, томаты, перец болгарский, маслины, сыр, зелень"),
 	   "weight"=>array("500","800"),
+      	   "sous"=>array("Сырный","Кетчуп"),
 	   "cost"=>array(370,430),    
 	   "images"=>array("molodezhnaya.png"),
   ];
@@ -158,6 +173,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, постный майонез, томаты, перец болгарский, брокколи, цветная капуста, фасоль, горошек зеленый, зелень"),
 	   "weight"=>array("500"),
+      	   "sous"=>array("Сырный","Кетчуп"),
 	   "cost"=>array(310),    
 	   "images"=>array("postnaya.png"),
   ];
@@ -166,6 +182,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, шампиньоны, куринная грудка, колбаса вареная, ветчина, томаты, перец болгарский, сыр, зелень"),
 	   "weight"=>array("500","800"),
+      	   "sous"=>array("Сырный","Кетчуп"),
 	   "cost"=>array(370,430),    
 	   "images"=>array("samobranka.png"),
   ];
@@ -174,6 +191,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, грудка копченая, ветчина, буженина, перец болгарский, томаты, сыр, зелень"),
 	   "weight"=>array("500","800"),
+      	   "sous"=>array("Сырный","Кетчуп"),
 	   "cost"=>array(370,430),    
 	   "images"=>array("semeyanaya.png"),
   ];
@@ -182,6 +200,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Сироп клубничный, соус сметанный, клбуника, персики, груша, киви, ананас, посыпка кондитерская, топинг карамельный"),
 	   "weight"=>array("700"),
+	   "sous"=>array("Сырный","Кетчуп"),      
 	   "cost"=>array(400),    
 	   "images"=>array("sladkoezhka.png"),
   ];
@@ -190,6 +209,7 @@ $mobile_site="70-17-70";
 	   "type"=>"main", //main or dop
 	   "structure"=>array("Соус пряный, бекон, колбаски охоничьи, корнишоны, перец болгарский, томаты, сыр"),
 	   "weight"=>array("500","800"),
+	   "sous"=>array("Сырный","Кетчуп"),
 	   "cost"=>array(370,430),    
 	   "images"=>array("sitnaya.png"),
   ];
@@ -198,6 +218,7 @@ $mobile_site="70-17-70";
 	   "descr"=>"Натуральные соки в ассортименте",
 	   "type"=>"main", //main or dop
 	   "structure"=>array(""),
+	   "sous"=>array(),
 	   "weight"=>array("Абрикос-Яблоко","Апельсин","Груша-Яблоко","Персик-Яблоко","Яблоко-Виноград","Яблоко","Мультифрукт"),
 	   "cost"=>array(60,60,60,60,60,60,60),    
 	   "images"=>array("sok.jpg"),
@@ -206,18 +227,9 @@ $mobile_site="70-17-70";
 	   "descr"=>"Настоящий качественный лимонад",
 	   "type"=>"main", //main or dop
 	   "structure"=>array(""),
+	   "sous"=>array(),
 	   "weight"=>array("Буратино","Барбарис","Грушевый","Дюшес","Лимонад","Тархун","Экстра-Ситро"),
 	   "cost"=>array(40,40,40,40,40,40,40),    
 	   "images"=>array("limonad.jpg"),
   ];
-  $menu[]=["name"=>"Соус",
-	   "descr"=>"Настоящий натуральный соус",
-	   "type"=>"sous", //main or dop
-	   "structure"=>array(""),
-	   "weight"=>array("Сырный","Колбаски"),
-	   "cost"=>array(40,40),    
-	   "images"=>array("limonad.jpg"),
-  ];
-
-
 ?>

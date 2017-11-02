@@ -40,32 +40,38 @@
 							?>							
 							<div class="container-fluid">
 								<div class="row">	    
-								    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-inline" style="padding-right: 0px;padding-left: 0px;">    
-									<select onchange="ChangeWeight(<?php echo $id?>)" id="weight_<?php echo $id?>" class="form-control">
-									    <?php
-										foreach ($pmenu["weight"] as $ids => $weight){
-										if ($weight>0){
-											echo "<option value=$weight>$weight гр</option>";
-										}
-											else {
-											    echo "<option value=$weight>$weight</option>";
-											};
-										};									    
-									    ?>
-    								        </select>
-									<select id="sous_<?php echo $id?>" class="form-control">
-									</select>
+								    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-right: 0px;padding-left: 0px;">    
 									  <div id="price_<?php echo $id?>" class="price">									    
 									    <?php echo $pmenu["cost"][0]; ?> <i class="fa fa-rub" aria-hidden="true"></i>
 									  </div>
+									    <form class="form-inline" role="form">
+										<select onchange="ChangeWeight(<?php echo $id?>)" id="weight_<?php echo $id?>" class="form-control">
+										    <?php
+											foreach ($pmenu["weight"] as $ids => $weight){
+											if ($weight>0){
+												echo "<option value=$weight>$weight гр</option>";
+											}
+												else {
+												    echo "<option value=$weight>$weight</option>";
+												};
+											};									    
+										    ?>
+										</select>
+										<select id="sous_<?php echo $id?>" class="form-control">
+										    <?php
+											foreach ($pmenu["sous"] as $ids => $sousname){
+												echo "<option value=$sousname>$sousname</option>";
+											};									    
+										    ?>										    
+										</select>
+									     </form>
 									  <input type="hidden" id = "cost_<?php echo $id?>" value="<?php echo $pmenu["cost"][0]; ?>">
 								    </div>    
-								    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="padding-right: 0px;padding-left: 0px;">    
+								    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-right: 0px;padding-left: 0px;">    
 									<div style="align:center;" >										
 										  <button type="button" onclick="AddToCart(<?php echo $id?>);OpenCart();" class="btn btn-default btn-sm form-control">Заказать</button>
 										  <button type="button" onclick="AddToCart(<?php echo $id?>);" class="btn btn-info btn-sm form-control">В корзину</button>										
 									</div>
-
 								    </div>    
 								  </div>
 							    </div>
