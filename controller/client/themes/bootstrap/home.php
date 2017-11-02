@@ -40,7 +40,7 @@
 							?>							
 							<div class="container-fluid">
 								<div class="row">	    
-								    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="padding-right: 0px;padding-left: 0px;">    
+								    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-inline" style="padding-right: 0px;padding-left: 0px;">    
 									<select onchange="ChangeWeight(<?php echo $id?>)" id="weight_<?php echo $id?>" class="form-control">
 									    <?php
 										foreach ($pmenu["weight"] as $ids => $weight){
