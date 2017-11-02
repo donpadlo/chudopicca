@@ -41,8 +41,8 @@
 			$ht=$ht.'<tr>';
 			$ht=$ht."<td>$i</td>";			
 			$ht=$ht.'<td><strong>'.$pbacket->name.'</strong><br/>'.$pbacket->descr;
-			 if ($backet->sous!=""){
-			    $ht=$ht."Бесплатный соус:".$backet->sous;     
+			 if ($pbacket->sous!=""){
+			    $ht=$ht."Бесплатный соус:".$pbacket->sous;     
 			 };
 			$ht=$ht.'</td>';
 			$ht=$ht.'<td>'.$pbacket->width.'гр.</td>';
