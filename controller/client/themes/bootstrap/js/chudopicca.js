@@ -24,13 +24,14 @@ function AddToCart(id){
       $("#anim_picca").animate({left: coorsto.left,top:coorsto.top}, 400,function() {
 	    $("#anim_picca").hide();
       });		
-      bay={};
-      bay.id=id;
-      bay.width=$("#weight_"+id).val();
-      bay.cost=$("#cost_"+id).val();
+	  bay={};
+	  bay.id=id;
+	  bay.width=$("#weight_"+id).val();
+          bay.cost=$("#cost_"+id).val();
+	  bay.sous=$("#sous_"+id).val();
 	  bay.name=menu_array[id].name;
 	  bay.type=menu_array[id].type;
-	  bay.descr=menu_array[id].descr;
+	  bay.descr=menu_array[id].descr;	  
 	  bay.count=1;
 	  //проверяем, а вдруг в корзине уже есть такая пицца, тогда просто добавим +1 к количеству
 	  flag=0;
@@ -46,7 +47,6 @@ function AddToCart(id){
       if (flag==0) {backet[backet.length]=bay;};
 	  localStorage.setItem('backet',JSON.stringify(backet));
 	  backetRefresh();
-
 	$.toast({
 		heading: 'Внимание!',
 		text: bay.name+" добавлено в корзину заказа",
@@ -98,6 +98,7 @@ function ZakazFinish(){
 		flag=0;
 		if ($("#phone").val()==""){flag=1};
 		if ($("#address").val()==""){flag=1};		
+		if (samo.checked==true&$("#address").val()==""&$("#phone").val()!=""){flag=0;};
 		if (flag==1){
 		
 					$.toast({
@@ -109,7 +110,7 @@ function ZakazFinish(){
 						loaderBg: '#9EC600'  
 					});
 		} else {
-			    mobile=$("#phone").val();
+				mobile=$("#phone").val();
 				address=$("#address").val();
 				fromcart=fromcart.checked;
 				samo=samo.checked;
@@ -196,6 +197,7 @@ function OpenCart(){
 			  bay.id=99;
 			  bay.width="-";
 			  bay.cost=0;
+			  bay.sous="";
 			  bay.name="Напиток в подарок";
 			  bay.type="present";
 			  bay.descr="Оператор уточнит какой подарок вы хотите";
@@ -207,6 +209,7 @@ function OpenCart(){
 			  bay={};
 			  bay.id=100;
 			  bay.width="-";
+			  bay.sous="";
 			  bay.cost=-50;
 			  bay.name="Скидка за самовывоз";
 			  bay.type="present";
@@ -220,7 +223,11 @@ function OpenCart(){
 		        total=total+backet[i].cost*backet[i].count;		
 			ht=ht+'<tr>';
 			ht=ht+'<td>'+(i+1)+'</td>';
-			ht=ht+'<td><strong>'+backet[i].name+'</strong><br/>'+backet[i].descr+'</td>';
+			ht=ht+'<td><strong>'+backet[i].name+'</strong><br/>'+backet[i].descr;
+			if (backet[i].sous!=""){
+			    ht=ht+'<br/>Бесплатный соус:'+backet[i].sous;
+			};
+			ht=ht+'</td>';
 			if (backet[i].width>0)
 			{ht=ht+'<td>'+backet[i].width+'гр.</td>'} else 
 			{ht=ht+'<td>'+backet[i].width+'</td>'};

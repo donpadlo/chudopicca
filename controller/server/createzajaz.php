@@ -40,7 +40,11 @@
 			$i++;
 			$ht=$ht.'<tr>';
 			$ht=$ht."<td>$i</td>";			
-			$ht=$ht.'<td><strong>'.$pbacket->name.'</strong><br/>'.$pbacket->descr.'</td>';
+			$ht=$ht.'<td><strong>'.$pbacket->name.'</strong><br/>'.$pbacket->descr;
+			 if ($backet->sous!=""){
+			    $ht=$ht."Бесплатный соус:".$backet->sous;     
+			 };
+			$ht=$ht.'</td>';
 			$ht=$ht.'<td>'.$pbacket->width.'гр.</td>';
 			$ht=$ht.'<td>'.$pbacket->count.'</td>';
 			$summ=$pbacket->cost*$pbacket->count;
