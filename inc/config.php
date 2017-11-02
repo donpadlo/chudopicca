@@ -210,6 +210,14 @@ $mobile_site="70-17-70";
 	   "cost"=>array(40,40,40,40,40,40,40),    
 	   "images"=>array("limonad.jpg"),
   ];
+  $menu[]=["name"=>"Соус",
+	   "descr"=>"Настоящий натуральный соус",
+	   "type"=>"sous", //main or dop
+	   "structure"=>array(""),
+	   "weight"=>array("Сырный","Колбаски"),
+	   "cost"=>array(40,40),    
+	   "images"=>array("limonad.jpg"),
+  ];
 
 
 ?>

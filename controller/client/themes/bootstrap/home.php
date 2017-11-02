@@ -1,22 +1,3 @@
-<script>
-menu_array=[];
-<?php
- foreach ($menu as $id => $pmenu){
-	 $name=$pmenu["name"];
-	 $descr=$pmenu["descr"];
-	 $type=$pmenu["type"];
-	 $wg="";
-	 foreach ($pmenu["weight"] as $ids => $weight){
-		$wg=$wg."'".$weight."',";
-	};	
-	 $cst="";
-	 foreach ($pmenu["cost"] as $ids => $cost){
-		$cst=$cst.$cost.",";
-	};		
-	 echo "menu_array[$id]={name:\"$name\",descr:\"$descr\",type:\"$type\",weight:[$wg],costs:[$cst]};\n\r"; 
- };
-?>
-</script>
 <div class="container-fluid">
 	<div class="row">	    
 	    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-10" style="padding-right: 0px;padding-left: 0px;">    
@@ -72,6 +53,8 @@ menu_array=[];
 										};									    
 									    ?>
     								        </select>
+									<select id="sous_<?php echo $id?>" class="form-control">
+									</select>
 									  <div id="price_<?php echo $id?>" class="price">									    
 									    <?php echo $pmenu["cost"][0]; ?> <i class="fa fa-rub" aria-hidden="true"></i>
 									  </div>

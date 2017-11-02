@@ -44,6 +44,25 @@ $wts=$wts.'fromapp="'.$fromapp.'";';
 $wts=$wts."</script>";
 echo $wts;
 ?>    
+<script>
+menu_array=[];
+<?php
+ foreach ($menu as $id => $pmenu){
+	 $name=$pmenu["name"];
+	 $descr=$pmenu["descr"];
+	 $type=$pmenu["type"];
+	 $wg="";
+	 foreach ($pmenu["weight"] as $ids => $weight){
+		$wg=$wg."'".$weight."',";
+	};	
+	 $cst="";
+	 foreach ($pmenu["cost"] as $ids => $cost){
+		$cst=$cst.$cost.",";
+	};		
+	 echo "menu_array[$id]={name:\"$name\",descr:\"$descr\",type:\"$type\",weight:[$wg],costs:[$cst]};\n\r"; 
+ };
+?>
+</script>    
 <div class="mobile_work" id="mobile_work">
     Работаем: с <?php echo $worktime[date("N")][0].":00 до ".$worktime[date("N")][1].":00"; ?>
     <img alt="телефон" height="16"  src="/controller/client/themes/bootstrap/img/phone-icon.png">
