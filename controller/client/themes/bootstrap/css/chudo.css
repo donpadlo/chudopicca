@@ -70,13 +70,13 @@ border-radius: 3px;
 	cursor:pointer;
 }
 .widjet_cost{
-cursor: pointer;
-top: 42px;
-position: absolute;
-right: 76px;
-font-size: large;
-text-align: center;
-opacity: 0.8;
+    cursor: pointer;
+    top: 42px;
+    position: absolute;
+    right: 76px;
+    font-size: large;
+    text-align: center;
+    opacity: 0.8;
 }
 .widjet_cost_buttom {
     width:40px;

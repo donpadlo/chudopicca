@@ -254,7 +254,7 @@ function OpenCart(){
 		ht=ht+'		<input id="fromcart" name="fromcart" type="checkbox"> Оплата будет с пластиковой карты';
 		ht=ht+'	</label>';
 		ht=ht+'</div>';
-		ht=ht+'<div class="checkbox">';
+		ht=ht+'<div style="display:none;" class="checkbox">';
 		ht=ht+'	<label>';
 		ht=ht+'		<input id="samo" onclick="OpenCloseBacket();" name="samo" type="checkbox"> Самовывоз';
 		ht=ht+'	</label>';
