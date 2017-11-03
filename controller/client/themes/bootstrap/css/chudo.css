@@ -53,8 +53,15 @@ width: 90%;
     z-index: 10000;
 }
 .price{
-    font-size: x-large;
-    text-align: center;    
+font-size: x-large;
+text-align: center;
+position: absolute;
+top: 30px;
+width: 50%;
+right: -10px;
+border: 1px;
+background-color: gold;
+border-radius: 3px;
 }
 .widjet_cart {
     top: 25px;
@@ -63,13 +70,13 @@ width: 90%;
 	cursor:pointer;
 }
 .widjet_cost{
-    cursor: pointer;
-    top: 32px;
-    position: absolute;
-    right: 140px;
-    font-size: large;
-    text-align: center;
-    opacity: 0.8;
+cursor: pointer;
+top: 42px;
+position: absolute;
+right: 76px;
+font-size: large;
+text-align: center;
+opacity: 0.8;
 }
 .widjet_cost_buttom {
     width:40px;

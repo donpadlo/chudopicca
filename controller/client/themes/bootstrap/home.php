@@ -15,6 +15,9 @@
 					 ?>
 					<li class="picca_li">
 						<div class="titlepicca"><b><?php echo $pmenu["name"];?></b></div>
+									  <div id="price_<?php echo $id?>" class="price">									    
+									    <?php echo $pmenu["cost"][0]; ?> <i class="fa fa-rub" aria-hidden="true"></i>
+									  </div>									    						
 						<div class="thumb" id="trumb_<?php echo $id?>">
 						    <img  width="100" id="<?php echo "pic_$id";?>" src="/controller/client/themes/bootstrap/images/<?php echo $pmenu["images"][0];?>" alt="<?php echo $pmenu["descr"];?>" />
 						</div>
@@ -40,34 +43,30 @@
 							?>							
 							<div class="container-fluid">
 								<div class="row">	    
-								    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-right: 0px;padding-left: 0px;">    
-									  <div id="price_<?php echo $id?>" class="price">									    
-									    <?php echo $pmenu["cost"][0]; ?> <i class="fa fa-rub" aria-hidden="true"></i>
-									  </div>
-									    <form class="form-inline" role="form">
-										<select onchange="ChangeWeight(<?php echo $id?>)" id="weight_<?php echo $id?>" class="form-control">
-										    <?php
-											foreach ($pmenu["weight"] as $ids => $weight){
-											if ($weight>0){
-												echo "<option value=$weight>$weight гр</option>";
-											}
-												else {
-												    echo "<option value=$weight>$weight</option>";
-												};
-											};									    
-										    ?>
-										</select>
-										<select id="sous_<?php echo $id?>" class="form-control">
-										    <?php
-											foreach ($pmenu["sous"] as $ids => $sousname){
-												echo "<option value=$sousname>$sousname</option>";
-											};									    
-										    ?>										    
-										</select>
-									     </form>
+								    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-right: 0px;padding-left: 0px;">    										
+											<select onchange="ChangeWeight(<?php echo $id?>)" id="weight_<?php echo $id?>" class="form-control">
+											    <?php
+												foreach ($pmenu["weight"] as $ids => $weight){
+												if ($weight>0){
+													echo "<option title='$weight' value='$weight'>$weight гр</option>";
+												}
+													else {
+													    echo "<option title='$weight' value=$weight>$weight</option>";
+													};
+												};									    
+											    ?>
+											</select>
+											<select id="sous_<?php echo $id?>" class="form-control">
+											    <?php
+												foreach ($pmenu["sous"] as $ids => $sousname){
+													echo "<option title='$sousname' value='$sousname'>$sousname</option>";
+												};									    
+											    ?>										    
+											</select>										    
+									     
 									  <input type="hidden" id = "cost_<?php echo $id?>" value="<?php echo $pmenu["cost"][0]; ?>">
 								    </div>    
-								    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-right: 0px;padding-left: 0px;">    
+								    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-right: 0px;padding-left: 0px;">    
 									<div style="align:center;" >										
 										  <button type="button" onclick="AddToCart(<?php echo $id?>);OpenCart();" class="btn btn-default btn-sm form-control">Заказать</button>
 										  <button type="button" onclick="AddToCart(<?php echo $id?>);" class="btn btn-info btn-sm form-control">В корзину</button>										
@@ -85,7 +84,7 @@
 		</div>
 	</div>
 	    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2" style="padding-right: 0px;padding-left: 0px;">    		
-		<div id="vk_widget"><div style="align:center;"><img alt="animation" src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет загрузка страницы..</h2></div></div>
+		<div id="vk_widget"><div style="align:center;"><h2>Идет загрузка страницы..</h2></div></div>
 		<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
 		<script>
 		    function VK_Widget_Init(){
@@ -95,7 +94,7 @@
 		    window.addEventListener('load', VK_Widget_Init, false);
 		    window.addEventListener('resize', VK_Widget_Init, false);
 		</script>		
-		<div id="vk_widget1"><div style="align:center;"><img alt="animation" src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет загрузка страницы..</h2></div></div>
+		<div id="vk_widget1"><div style="align:center;"><h2>Идет загрузка страницы..</h2></div></div>
 		<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
 		<script>
 		    function VK_Widget_Init(){

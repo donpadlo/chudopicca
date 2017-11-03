@@ -23,6 +23,7 @@
 	<link rel="stylesheet" href="controller/client/themes/<?php echo $cfg->theme; ?>/css/simplegrid.css">
 	<link rel="stylesheet" href="controller/client/themes/<?php echo $cfg->theme; ?>/css/chudo.css">	
 	<link rel="stylesheet" href="controller/client/themes/<?php echo $cfg->theme; ?>/css/jquery.toast.min.css">			
+<!--	<link rel="stylesheet" href="controller/client/themes/<?php echo $cfg->theme; ?>/css/bootstrap-select.min.css">			-->
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery-3.2.1.min.js"></script>
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery-ui.min.js"></script>	
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/bootstrap.min.js"></script>	
@@ -31,6 +32,7 @@
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery.maskedinput.min.js"></script>		
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/device.min.js"></script>			
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery.toast.min.js"></script>			
+<!--	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/bootstrap-select.min.js"></script>		-->
 </head>
 <body>
 <?php
