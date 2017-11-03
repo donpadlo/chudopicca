@@ -249,12 +249,12 @@ function OpenCart(){
 		ht=ht+'<label for="phone">Дополнительные сведения</label>';
 		ht=ht+'<input type="text" class="form-control" id="phone" name="phone" placeholder="Введите ваш телефон">';		
 		ht=ht+'</div>';
-		ht=ht+'<div class="checkbox">';
+		ht=ht+'<div style="display:none;" class="checkbox">';
 		ht=ht+'	<label>';
 		ht=ht+'		<input id="fromcart" name="fromcart" type="checkbox"> Оплата будет с пластиковой карты';
 		ht=ht+'	</label>';
 		ht=ht+'</div>';
-		ht=ht+'<div style="display:none;" class="checkbox">';
+		ht=ht+'<div  class="checkbox">';
 		ht=ht+'	<label>';
 		ht=ht+'		<input id="samo" onclick="OpenCloseBacket();" name="samo" type="checkbox"> Самовывоз';
 		ht=ht+'	</label>';
