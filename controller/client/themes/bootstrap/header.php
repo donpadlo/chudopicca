@@ -38,9 +38,12 @@
 <?php
 $wts="<script>worktime=[]\r\n";
 foreach ($worktime as $key => $value) {
-    $start=$value[0];
-    $end=$value[1];
-  $wts=$wts."worktime[$key]={start:$start,end:$end};\r\n";
+    $hourss="";
+    foreach ($value as $hours) {
+	$hourss=$hourss.$hours.",";	
+    };
+    $hourss = substr($hourss, 0, strlen($hourss) - 1);
+  $wts=$wts."worktime[$key]=[$hourss];\r\n";
 };
 $wts=$wts.'fromapp="'.$fromapp.'";';
 $wts=$wts."</script>";
@@ -66,7 +69,7 @@ menu_array=[];
 ?>
 </script>    
 <div class="mobile_work" id="mobile_work">
-    Работаем: с <?php echo $worktime[date("N")][0].":00 до ".$worktime[date("N")][1].":00"; ?>
+    Работаем: с <?php echo $worktime[date("N")][0].":00 до ".$worktime[date("N")][count($worktime[date("N")])-1].":00"; ?>
     <img alt="телефон" height="16"  src="/controller/client/themes/bootstrap/img/phone-icon.png">
     <?php echo " : $mobile_site"; ?>
 </div>    

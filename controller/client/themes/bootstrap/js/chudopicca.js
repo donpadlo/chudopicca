@@ -151,7 +151,9 @@ function IsWorkTime(worktime){
   var dt=new Date();
   var w=dt.getDay();
   if (typeof(worktime[w])!="undefined"){
-      if (dt.getHours()>=worktime[w].start&dt.getHours()<=worktime[w].end){
+      if (worktime[w].indexOf(dt.getHours())!=-1){
+	  console.log("день недели:",w);
+	  console.log("часы:",dt.getHours());
 	console.log("работаем!");
 	return true;  	  	  
       } else {
@@ -186,12 +188,26 @@ function OpenCart(){
         ht=ht+'</thead>';		
 		// добавялем подарки если есть		
 		total=0;
-		for (var i=0, len=backet.length; i<len; i++) {		    			
-			total=total+backet[i].cost*backet[i].count;		
-			if (backet[i].type=="present"){
-				backet.splice(i, 1);			
-			};			
+		countpicca=0;
+		console.log("-пересчитываем стоимость");
+		tmpbacket=[];
+		for (var i=0, len=backet.length; i<len; i++) {
+		    if (typeof backet[i]!="undefined"){
+			    console.log(i);			    
+			    if (backet[i].type!="present"){
+				total=total+backet[i].cost*backet[i].count;						
+				tmpbacket[tmpbacket.length]=backet[i];
+				if (backet[i].cost>300){
+				    countpicca=countpicca+backet[i].count;
+				};
+			    };
+		//	    if (backet[i].type=="present"){
+		//		    backet.splice(i, 1);			
+		//	    };		
+			};
 		};
+		backet=tmpbacket;
+		console.log("-добавляем подарки и акции");
 		if (total>600){			
 		      bay={};
 			  bay.id=99;
@@ -203,14 +219,14 @@ function OpenCart(){
 			  bay.descr="Оператор уточнит какой подарок вы хотите";
 			  bay.count=1;
 			  backet[backet.length]=bay;
-			  console.log("-добавили подарок",backet[backet.length]);
+			  console.log("-добавили подарок",backet[backet.length-1]);
 		};
 		if (samoc==true){
 			  bay={};
 			  bay.id=100;
 			  bay.width="-";
 			  bay.sous="";
-			  bay.cost=-50;
+			  bay.cost=-50*countpicca;
 			  bay.name="Скидка за самовывоз";
 			  bay.type="present";
 			  bay.descr="";
@@ -218,6 +234,7 @@ function OpenCart(){
 			  backet[backet.length]=bay;
 		};
 		// перечисляем заказ	
+		  console.log("перечисляем заказ");
 		  total=0;
 		  for (var i=0, len=backet.length; i<len; i++) {
 		        total=total+backet[i].cost*backet[i].count;		
