@@ -56,6 +56,8 @@
 		$ht=$ht.'</table><br/>';		    		
 		$ht=$ht."Телефон: $mobile<br/>";
 		$ht=$ht."Адрес: $address<br/>";
+		if ($fromcart=="true"){$fromcart="Да";} else {$fromcart="Нет";}
+		if ($samo=="true"){$samo="Да";} else {$samo="Нет";}
 		$ht=$ht."Оплата с карточки: $fromcart<br/>";
 		$ht=$ht."Самовывоз: $samo<br/>";		
 		$mail->Body    = $ht;		
