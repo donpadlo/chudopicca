@@ -149,7 +149,7 @@ function ZakazFinish(){
 };
 function IsWorkTime(worktime){
   var dt=new Date();
-  var w=dt.getDay();
+  var w=dt.getDay()+1;
   if (typeof(worktime[w])!="undefined"){
       if (worktime[w].indexOf(dt.getHours())!=-1){
 	  console.log("день недели:",w);

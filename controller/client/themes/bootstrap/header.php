@@ -28,7 +28,7 @@
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery-ui.min.js"></script>	
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/bootstrap.min.js"></script>	
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/simple-list-grid.js"></script>		
-	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/chudopicca.js"></script>	
+	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/chudopicca.js?randomid=234528938"></script>	
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery.maskedinput.min.js"></script>		
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/device.min.js"></script>			
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery.toast.min.js"></script>			

@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<div class="row">	    
-	    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-10" style="padding-right: 0px;padding-left: 0px;">    
+	    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-10" style="padding-right: 0px;padding-left: 0px;">   				
 		<div class="simple-list-grid">
 		    <div id="masha_set" class="masha_set"></div>
 			<div id="ggpay"  style="display: none;	height: 80px;width: 100px;left: 110px;top: -14px;position: absolute;z-index: 1;">
@@ -84,42 +84,21 @@
 		</div>
 	</div>
 	    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2" style="padding-right: 0px;padding-left: 0px;">    		
-		<div id="vk_widget"><div style="align:center;"><h2>Идет загрузка страницы..</h2></div></div>
-		<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
-		<script>
-		    function VK_Widget_Init(){
-			document.getElementById('vk_widget').innerHTML = '<div id="vk_groups"></div>';
-			VK.Widgets.Group("vk_groups", {mode: 0, width: "auto", height: "400"}, 155678039);
-		    };
-		    window.addEventListener('load', VK_Widget_Init, false);
-		    window.addEventListener('resize', VK_Widget_Init, false);
-		</script>		
-		<div id="vk_widget1"><div style="align:center;"><h2>Идет загрузка страницы..</h2></div></div>
-		<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
-		<script>
-		    function VK_Widget_Init(){
-			document.getElementById('vk_widget1').innerHTML = '<div id="vk_groups1"></div>';
-			VK.Widgets.Group("vk_groups1", {mode: 4, width: "auto", height: "400"}, 155678039);
-		    };
-		    window.addEventListener('load', VK_Widget_Init, false);
-		    window.addEventListener('resize', VK_Widget_Init, false);
-		</script>
+		<div class="thumb" id="trumb_<?php echo $id?>">
+		    <a href="index.php?content_page=action<?php echo"&fromapp=$fromapp";?>">
+			<img  width="100%" src="/controller/client/themes/bootstrap/img/to2to.jpg" alt="Пицца из двух половинок" />
+		    </a>
+		</div>		    
 	    <!-- Rating@Mail.ru logo -->
+	    <div align="center">
 	    <a href="https://top.mail.ru/jump?from=2938393">
 	    <img src="//top-fwz1.mail.ru/counter?id=2938393;t=617;l=1" 
 	    style="border:0;" height="40" width="88" alt="Рейтинг@Mail.ru" /></a>
 	    <!-- //Rating@Mail.ru logo -->
 		
 	    <script type="text/javascript" src="//vk.com/js/api/openapi.js?150"></script>
-	    <h1>Чудо Пицца. Всегда отличный вкус.</h1>
-	    <!-- VK Widget -->
-	    <div id="vk_community_messages"></div>
-	    <script type="text/javascript">
-		if (fromapp!="true") {
-		    VK.Widgets.CommunityMessages("vk_community_messages", 155678039, {tooltipButtonText: "Хотите заказать но не знаете как?"});
-		};
-	    </script>
-	    </div>   	    
+	    <h1>Чудо Пицца Вологда</h1><h2>Всегда отличный вкус</h2><h3>Доставка бесплатно</h3><h4>При самовывозе скидка!</h4>
+	    </div>
 	</div>
 </div>	
 <div id="anim_picca" class="anim_picca">    
