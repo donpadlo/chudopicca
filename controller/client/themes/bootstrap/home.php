@@ -85,7 +85,10 @@
 	</div>
 	    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2" style="padding-right: 0px;padding-left: 0px;">    		
 		<div class="thumb" id="trumb_<?php echo $id?>">
-		    <a href="index.php?content_page=action<?php echo"&fromapp=$fromapp";?>">
+		    <div align="center">
+			<b style="color: red">Пицца из двух половинок.<br/>Соединяй свои любимые вкусы</b><br/>
+		    </div>
+		    <a href="index.php?content_page=action<?php echo"&fromapp=$fromapp";?>">			
 			<img  width="100%" src="/controller/client/themes/bootstrap/img/to2to.jpg" alt="Пицца из двух половинок" />
 		    </a>
 		</div>		    
