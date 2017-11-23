@@ -68,10 +68,24 @@ menu_array=[];
  };
 ?>
 </script>    
-<div class="mobile_work" id="mobile_work">
-    Работаем: с <?php echo $worktime[date("N")][0].":00 до ".$worktime[date("N")][count($worktime[date("N")])-1].":00"; ?>
-    <img alt="телефон" height="16"  src="/controller/client/themes/bootstrap/img/phone-icon.png">
-    <?php echo " : $mobile_site"; ?>
+<div class="container-fluid">
+    <div class="row">
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding-right: 0px;padding-left: 0px;text-align: center;">   				
+	    Сегодня работаем</br> с <?php echo $worktime[date("N")][0].":00 до ".$worktime[date("N")][count($worktime[date("N")])-1].":00"; ?>
+	</div>
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding-right: 0px;padding-left: 0px;text-align: center;">   					    
+		<img alt="логотип" height="100%" src="/controller/client/themes/bootstrap/img/head.png" class="img-responsive">	    
+	</div>
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding-right: 0px;padding-left: 0px;text-align: center;">   					        
+		<img alt="телефон" height="16"  src="/controller/client/themes/bootstrap/img/phone-icon.png"></br>
+		ТЕЛЕФОН ДЛЯ ЗАКАЗОВ<br/>
+		<?php echo "$mobile_site"; ?>
+		<div id="widjet_cart" class="widjet_cart">
+		    <img alt="корзина" id="imgcart" onclick="OpenCart();" height="40" width="40" src="controller/client/themes/bootstrap/img/purchase.png" />
+		</div>		
+		<span id="widjet_cost" class="label label-success widjet_cost"></span>
+	</div>	
+    </div>
 </div>    
 <!-- Fixed navbar -->
 <div class="navbar navbar-default" role="navigation">
@@ -99,9 +113,5 @@ menu_array=[];
     <div id="list_cart">
     </div>        
 </div>
-<div id="widjet_cart" class="widjet_cart">
-    <img alt="корзина" id="imgcart" onclick="OpenCart();" height="40" width="40" src="controller/client/themes/bootstrap/img/purchase.png" />
-</div>
-<span id="widjet_cost" class="label label-success widjet_cost"></span>
 <a href="#" class="scrollup">Наверх</a>       
 <span onclick="OpenCart()" class="widjet_cost_buttom"></span>

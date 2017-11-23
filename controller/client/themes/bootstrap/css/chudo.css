@@ -14,10 +14,17 @@ body{
     background-attachment: fixed;
 }
 .mobile_work {
-text-align: center;
+text-align: right;
 position: absolute;
-top: 0px;
+top: 200px;
 width: 90%;
+}
+.headlogo{
+    height: 200px;    
+    top: 0;
+    align-content: center;
+    text-align: center;
+    width: 100%;
 }
 .logotitle{
 	z-index: 100001;	
@@ -64,15 +71,11 @@ background-color: gold;
 border-radius: 3px;
 }
 .widjet_cart {
-    top: 25px;
-    position: absolute;
-    right: 90px;
 	cursor:pointer;
 }
 .widjet_cost{
     cursor: pointer;
-    top: 42px;
-    position: absolute;
+    top: 42px;    
     right: 76px;
     font-size: large;
     text-align: center;
