@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Форпост. Инструкция по установке</title>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="date" content="2017-05-10T07:02:56+0000"/>
+<meta name="keywords" content="cctv,install-cctv-deb72-from-distrib"/>
+<link rel="stylesheet" type="text/css" href="install-1.css"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_dokuwiki loggedIn    ">
+
+        
+<div id="dokuwiki__header"></div>
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>Форпост. Инструкция по установке</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Содержание</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#автоматическая_установка">Автоматическая установка</a></div></li>
+<li class="level1"><div class="li"><a href="#подготовка_системы">Подготовка системы</a></div></li>
+<li class="level1"><div class="li"><a href="#подготовка_базы_данных">Подготовка базы данных</a></div></li>
+<li class="level1"><div class="li"><a href="#master_streamer">master/streamer</a></div></li>
+<li class="level1"><div class="li"><a href="#портал">Портал</a></div></li>
+<li class="level1"><div class="li"><a href="#firewall">Firewall</a></div></li>
+<li class="level1"><div class="li"><a href="#распределенная_установка">Распределенная установка</a></div></li>
+<li class="level1"><div class="li"><a href="#freebsd">FreeBSD</a></div>
+<ul class="toc">
+<li class="clear">
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#пакеты">Пакеты</a></div></li>
+<li class="level3"><div class="li"><a href="#создание_пользователя">Создание пользователя</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="#centos">CentOS</a></div>
+<ul class="toc">
+<li class="clear">
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#пакеты1">Пакеты</a></div></li>
+<li class="level3"><div class="li"><a href="#ev_anyevent">EV, AnyEvent</a></div></li>
+<li class="level3"><div class="li"><a href="#портал1">Портал</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="#ubuntu_16_и_выше">Ubuntu 16 и выше</a></div>
+<ul class="toc">
+<li class="clear">
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#пакеты2">Пакеты</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="#обновление">Обновление</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#порядок_обновления">Порядок обновления</a></div></li>
+<li class="level2"><div class="li"><a href="#структура_базы_данных">Структура базы данных</a></div></li>
+<li class="level2"><div class="li"><a href="#обновление_справочников">Обновление справочников</a></div></li>
+<li class="level2"><div class="li"><a href="#параметры_утилит_sql-diff_и_dbdata">Параметры утилит sql-diff и dbdata</a></div></li>
+<li class="level2"><div class="li"><a href="#пароль_mysql">Пароль MySQL</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="автоматическая_установка">Автоматическая установка</h1>
+<div class="level1">
+
+<p>
+Для ряда операционных систем поддерживается автоматическая установка сервиса с параметрами по умолчанию при помощи скрипта «install».
+</p>
+
+<p>
+Если Ваш дистрибутив содержит этот скрипт, можете им воспользоваться, просто запустив его. Этот скрипт выполнит все действия, которые описаны ниже.
+</p>
+
+<p>
+При установке скриптом «install» параметры доступа к вебинтерфейсу сервиса: пользователь admin пароль forpost.
+</p>
+
+</div>
+<h1 class="sectionedit2" id="подготовка_системы">Подготовка системы</h1>
+<div class="level1">
+
+<p>
+Установить следующие пакеты: <br/>
+
+mysql-server apache2 php5 php5-gd php5-curl php5-mysql php5-json libev-perl libanyevent-perl<br/>
+
+В ряде дистрибутивов вместо пакета php5-json идет пакет php5-common.<br/>
+
+Для FreeBSD список пакетов приведен ниже. Там же приведены дополнительные инструкции для CentOS.
+</p>
+
+<p>
+Для работы подсистемы уведомлений на хосте должна быть настроена почта.
+</p>
+
+<p>
+Создать пользователя cctv (Linux, для FreeBSD команды ниже).
+</p>
+<pre class="code file bash">groupadd <span class="re5">-g</span> <span class="nu0">901</span> cctv
+useradd <span class="re5">-c</span> <span class="st_h">'CCTV Daemons'</span> <span class="re5">-g</span> cctv <span class="re5">-m</span> <span class="re5">-s</span> <span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>nologin <span class="re5">-u</span> <span class="nu0">901</span> cctv</pre>
+
+</div>
+<h1 class="sectionedit3" id="подготовка_базы_данных">Подготовка базы данных</h1>
+<div class="level1">
+
+<p>
+mysql (пароль поменять на свой, этот пароль потребуется указать далее в master.conf и в local.php):
+</p>
+<pre class="code file sql"><span class="kw1">CREATE</span> <span class="kw1">DATABASE</span> cctv <span class="kw1">DEFAULT</span> <span class="kw1">CHARACTER</span> <span class="kw1">SET</span> utf8;
+<span class="kw1">GRANT</span> <span class="kw1">SELECT</span><span class="sy0">,</span> <span class="kw1">INSERT</span><span class="sy0">,</span> <span class="kw1">UPDATE</span><span class="sy0">,</span> <span class="kw1">DELETE</span> <span class="kw1">ON</span> <span class="st0">`cctv`</span><span class="sy0">.*</span> <span class="kw1">TO</span> <span class="st0">'cctv'</span>@<span class="st0">'localhost'</span> <span class="kw1">IDENTIFIED</span> <span class="kw1">BY</span> <span class="st0">'dbUsp24qazQT'</span>;</pre>
+
+<p>
+shell:
+</p>
+<pre class="code file bash">mysql cctv <span class="sy0">&lt;</span> sql<span class="sy0">/</span>cctv-db.sql
+mysql cctv <span class="sy0">&lt;</span> sql<span class="sy0">/</span>cctv-data.sql</pre>
+
+<p>
+Если при выполнении команд происходит ошибка «Invalid default value for &#039;Updated&#039;», необходимо:
+</p>
+<pre class="code file bash">Выполнить команду mysql и удалить базу данных cctv: drop database cctv;
+Найти путь к конфигурационному файлу MySQL my.cnf: mysql <span class="re5">--help</span> <span class="sy0">|</span> <span class="kw2">grep</span> <span class="st0">&quot;Default options&quot;</span> <span class="re5">-A</span> <span class="nu0">1</span>
+Добавить в файл my.cnf в секцию <span class="br0">&#91;</span>mysqld<span class="br0">&#93;</span> строку: sql_mode = <span class="st0">&quot;STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;</span>
+Перезапустить MySQL
+Повторить указанные выше действия по созданию и инициализации базы данных</pre>
+
+<p>
+mysql (снова поменять пароль, этот пароль будет использоваться для доступа к административному интерфейсу):
+</p>
+<pre class="code file sql"><span class="kw1">USE</span> cctv;
+<span class="kw1">INSERT</span> <span class="kw1">INTO</span> <span class="st0">`User`</span> <span class="br0">&#40;</span><span class="st0">`IsActive`</span><span class="sy0">,</span><span class="st0">`CreationDate`</span><span class="sy0">,</span><span class="st0">`Login`</span><span class="sy0">,</span><span class="st0">`Password`</span><span class="sy0">,</span><span class="st0">`TypeID`</span><span class="br0">&#41;</span> <span class="kw1">VALUE</span> <span class="br0">&#40;</span><span class="nu0">1</span><span class="sy0">,</span>NOW<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">,</span><span class="st0">'admin'</span><span class="sy0">,</span>MD5<span class="br0">&#40;</span><span class="st0">'wAdmo6DUpb4r'</span><span class="br0">&#41;</span><span class="sy0">,</span><span class="nu0">1</span><span class="br0">&#41;</span>;
+<span class="kw1">INSERT</span> <span class="kw1">INTO</span> <span class="st0">`Master`</span> <span class="br0">&#40;</span><span class="st0">`ID`</span><span class="sy0">,</span><span class="st0">`Name`</span><span class="sy0">,</span><span class="st0">`IP`</span><span class="sy0">,</span><span class="st0">`Port`</span><span class="sy0">,</span><span class="st0">`FTPPort`</span><span class="sy0">,</span><span class="st0">`IsDefault`</span><span class="br0">&#41;</span> <span class="kw1">VALUES</span> <span class="br0">&#40;</span><span class="nu0">1</span><span class="sy0">,</span><span class="st0">'master'</span><span class="sy0">,</span>inet_aton<span class="br0">&#40;</span><span class="st0">'127.0.0.1'</span><span class="br0">&#41;</span><span class="sy0">,</span><span class="nu0">2089</span><span class="sy0">,</span><span class="nu0">2087</span><span class="sy0">,</span><span class="nu0">1</span><span class="br0">&#41;</span>;
+<span class="kw1">INSERT</span> <span class="kw1">INTO</span> <span class="st0">`Streamer`</span> <span class="br0">&#40;</span><span class="st0">`ID`</span><span class="sy0">,</span><span class="st0">`MasterID`</span><span class="sy0">,</span><span class="st0">`IP`</span><span class="sy0">,</span><span class="st0">`Port`</span><span class="sy0">,</span><span class="st0">`PortRange`</span><span class="sy0">,</span><span class="st0">`IsActive`</span><span class="sy0">,</span><span class="st0">`EnableWrite`</span><span class="br0">&#41;</span> <span class="kw1">VALUES</span> <span class="br0">&#40;</span><span class="nu0">1</span><span class="sy0">,</span><span class="nu0">1</span><span class="sy0">,</span>inet_aton<span class="br0">&#40;</span><span class="st0">'127.0.0.1'</span><span class="br0">&#41;</span><span class="sy0">,</span><span class="nu0">8080</span><span class="sy0">,</span><span class="nu0">8089</span><span class="sy0">,</span><span class="nu0">1</span><span class="sy0">,</span><span class="nu0">1</span><span class="br0">&#41;</span>;</pre>
+
+</div>
+<h1 class="sectionedit4" id="master_streamer">master/streamer</h1>
+<div class="level1">
+
+<p>
+Скопировать файлы cctv-master, cctv-streamer, cctvctrl из папки sbin дистрибутива в папку /usr/local/sbin.
+</p>
+
+<p>
+Скопировать site_perl:
+</p>
+<pre class="code file bash"><span class="kw2">mkdir</span> <span class="re5">-p</span> <span class="sy0">/</span>usr<span class="sy0">/</span>local<span class="sy0">/</span>lib<span class="sy0">/</span>site_perl
+<span class="kw2">cp</span> <span class="re5">-R</span> site_perl<span class="sy0">/</span>Reshu <span class="sy0">/</span>usr<span class="sy0">/</span>local<span class="sy0">/</span>lib<span class="sy0">/</span>site_perl</pre>
+
+<p>
+Для CentOS 7 и выше дополнительно выполнить:
+</p>
+<pre class="code file bash"><span class="kw2">mkdir</span> <span class="re5">-p</span> <span class="sy0">/</span>usr<span class="sy0">/</span>local<span class="sy0">/</span>share<span class="sy0">/</span>perl5
+<span class="kw2">cp</span> <span class="re5">-R</span> site_perl<span class="sy0">/</span>Reshu <span class="sy0">/</span>usr<span class="sy0">/</span>local<span class="sy0">/</span>share<span class="sy0">/</span>perl5</pre>
+
+<p>
+Создать рабочие папки. Например так:
+</p>
+<pre class="code">drwxr-xr-x 3 root root 4096 Янв 30 15:25 /data/
+drwxr-xr-x 6 root root 4096 Янв 30 15:26 /data/cctv
+drwxr-xr-x 2 cctv cctv 4096 Янв 30 15:25 /data/cctv/archive
+lrwxrwxrwx 1 root root 19 Янв 30 15:26 /data/cctv/etc -&gt; /usr/local/etc/cctv
+drwxr-xr-x 2 cctv cctv 4096 Янв 30 15:26 /data/cctv/log
+drwxr-xr-x 2 root root 4096 Янв 30 15:25 /data/cctv/data
+drwxr-xr-x 2 cctv cctv 4096 Янв 30 15:26 /data/cctv/run</pre>
+
+<p>
+Папки log, run, archive должны быть доступны пользователю cctv для записи.
+</p>
+
+<p>
+Скопировать файл data/cctv-bg.jpg в папку /data/cctv/data.
+</p>
+
+<p>
+Создать конфигурационные файлы. Формат файлов - JSON, нельзя использовать одинарные кавычки для строк, не должно быть комментариев после завершающей скобки.
+</p>
+
+<p>
+<strong>Важно</strong>. Поскольку файл master.conf содержит пароль доступа к базе данных, этот файл должен быть доступен для чтения пользователю cctv (или группе этого пользователя) и не доступен другим пользователям.
+</p>
+
+<p>
+Пароль в master.conf/db/pass указать тот, который Вы подставили ранее при создании базы данных.
+</p>
+
+<p>
+Параметры &lt;name&gt;, &lt;key&gt;, &lt;serialno&gt; сообщаются отдельно. Обратите внимание, что для проверки ключа активации cctv-master должен иметь возможность подключиться к нашему серверу ключей на 178.161.179.242. Обратите внимание, что угловые скобки использованы только для обозначения подставляемых параметров, в реальном конфигурационном файле угловых скобок быть не должно.
+</p>
+<dl class="file">
+<dt>/data/cctv/etc/master.conf</dt>
+<dd><pre class="code file javascript"><span class="br0">&#123;</span>
+        addr<span class="sy0">:</span> <span class="br0">&#91;</span><span class="st0">&quot;127.0.0.1&quot;</span><span class="sy0">,</span> <span class="nu0">2088</span><span class="sy0">,</span> <span class="nu0">2089</span><span class="br0">&#93;</span><span class="sy0">,</span>
+        portal<span class="sy0">:</span> <span class="st0">&quot;127.0.0.1&quot;</span><span class="sy0">,</span>
+        ftp<span class="sy0">:</span> <span class="nu0">2087</span><span class="sy0">,</span> smtp<span class="sy0">:</span> <span class="nu0">2084</span><span class="sy0">,</span>
+        zabbix<span class="sy0">:</span> <span class="br0">&#91;</span><span class="st0">&quot;178.161.137.14&quot;</span><span class="sy0">,</span> <span class="nu0">2085</span><span class="br0">&#93;</span><span class="sy0">,</span>
+        db<span class="sy0">:</span> <span class="br0">&#123;</span> host<span class="sy0">:</span> <span class="st0">&quot;localhost&quot;</span><span class="sy0">,</span> schema<span class="sy0">:</span> <span class="st0">&quot;cctv&quot;</span><span class="sy0">,</span> user<span class="sy0">:</span> <span class="st0">&quot;cctv&quot;</span><span class="sy0">,</span> pass<span class="sy0">:</span> <span class="st0">&quot;dbUsp24qazQT&quot;</span> <span class="br0">&#125;</span><span class="sy0">,</span>
+        lock<span class="sy0">:</span> <span class="br0">&#91;</span><span class="st0">&quot;&lt;name&gt;&quot;</span><span class="sy0">,</span> <span class="st0">&quot;&lt;key&gt;&quot;</span><span class="br0">&#93;</span><span class="sy0">,</span>
+        serialno<span class="sy0">:</span> <span class="st0">&quot;&lt;serialno&gt;&quot;</span><span class="sy0">,</span>
+        pidfile<span class="sy0">:</span> <span class="st0">&quot;/data/cctv/run/master.orig.pid&quot;</span><span class="sy0">,</span>
+        outlog<span class="sy0">:</span> <span class="st0">&quot;/data/cctv/log/master.out.log&quot;</span><span class="sy0">,</span>
+        errlog<span class="sy0">:</span> <span class="st0">&quot;/data/cctv/log/master.err.log&quot;</span><span class="sy0">,</span>
+<span class="br0">&#125;</span></pre>
+</dd></dl>
+
+<p>
+Если у Вас на <abbr title="Hyper Text Transfer Protocol">HTTP</abbr>-сервере используются виртуальные хосты, то следует также указать доменное имя сайта (естественно свое):
+</p>
+<dl class="file">
+<dt>/data/cctv/etc/master.conf</dt>
+<dd><pre class="code file javascript">        portal<span class="sy0">:</span> <span class="br0">&#91;</span><span class="st0">&quot;127.0.0.1&quot;</span><span class="sy0">,</span> <span class="st0">&quot;dealer.fpst.ru&quot;</span><span class="br0">&#93;</span><span class="sy0">,</span></pre>
+</dd></dl>
+<dl class="file">
+<dt>/data/cctv/etc/streamer.conf</dt>
+<dd><pre class="code file javascript"><span class="br0">&#123;</span>
+        addr<span class="sy0">:</span> <span class="st0">&quot;127.0.0.1&quot;</span><span class="sy0">,</span>
+        master<span class="sy0">:</span> <span class="br0">&#91;</span><span class="st0">&quot;127.0.0.1&quot;</span><span class="sy0">,</span> <span class="nu0">2088</span><span class="br0">&#93;</span><span class="sy0">,</span>
+        zabbix<span class="sy0">:</span> <span class="br0">&#91;</span><span class="st0">&quot;178.161.137.14&quot;</span><span class="sy0">,</span> <span class="nu0">2086</span><span class="br0">&#93;</span><span class="sy0">,</span>
+        arch_dir<span class="sy0">:</span> <span class="st0">&quot;/data/cctv/archive&quot;</span><span class="sy0">,</span>
+        logo_jpeg<span class="sy0">:</span> <span class="st0">&quot;/data/cctv/data/cctv-bg.jpg&quot;</span><span class="sy0">,</span>
+        pidfile<span class="sy0">:</span> <span class="st0">&quot;/data/cctv/run/streamer.orig.pid&quot;</span><span class="sy0">,</span>
+        outlog<span class="sy0">:</span> <span class="st0">&quot;/data/cctv/log/streamer.out.log&quot;</span><span class="sy0">,</span>
+        errlog<span class="sy0">:</span> <span class="st0">&quot;/data/cctv/log/streamer.err.log&quot;</span><span class="sy0">,</span>
+<span class="br0">&#125;</span></pre>
+</dd></dl>
+
+<p>
+Запуск:
+</p>
+<pre class="code file bash"><span class="kw2">su</span> <span class="re5">-m</span> cctv <span class="re5">-c</span> <span class="st_h">'/usr/local/sbin/cctvctrl /usr/local/sbin/cctv-master /data/cctv/etc/master.conf &amp;'</span>
+<span class="kw2">su</span> <span class="re5">-m</span> cctv <span class="re5">-c</span> <span class="st_h">'/usr/local/sbin/cctvctrl /usr/local/sbin/cctv-streamer /data/cctv/etc/streamer.conf &amp;'</span></pre>
+
+<p>
+Останов:
+</p>
+<pre class="code file bash"><span class="kw2">kill</span> <span class="sy0">`</span><span class="kw2">head</span> <span class="re5">-n</span> <span class="nu0">1</span> <span class="sy0">/</span>data<span class="sy0">/</span>cctv<span class="sy0">/</span>run<span class="sy0">/</span>master.pid<span class="sy0">`</span>
+<span class="kw2">kill</span> <span class="sy0">`</span><span class="kw2">head</span> <span class="re5">-n</span> <span class="nu0">1</span> <span class="sy0">/</span>data<span class="sy0">/</span>cctv<span class="sy0">/</span>run<span class="sy0">/</span>streamer.pid<span class="sy0">`</span></pre>
+
+<p>
+Обратите внимание, что в master.conf был указан pidfile master.orig.pid, а при останове следует указывать master.pid. В файле master.orig.pid лежит pid процесса cctv-master, а в файле master.pid лежит pid процесса cctvctrl. Останавливать надо именно процесс cctvctrl. Если остановить процесс cctv-master, то cctvctrl запустит его снова. Все то же самое справедливо и для стримера.
+</p>
+
+<p>
+На Linux-системах для работы сервиса важно значение <strong>ulimit -n</strong> (максимальное значение открытых файлов для процесса; под файлом понимается в том числе сетевой подключение). Устанавливаемое по умолчанию значение 1024 при большом количестве камер/трансляций будет недостаточным. Рекомендуемое значение не менее 16384.
+</p>
+
+<p>
+Настроить ротацию для журналов master.err.log, master.out.log, streamer.err.log, streamer.out.log.
+</p>
+
+<p>
+Настроить автозапуск для служб cctv-master и cctv-streamer.
+</p>
+
+<p>
+Примеры настройки ротации журналов и автозапуска лежат в папке sample.
+</p>
+
+</div>
+<h1 class="sectionedit5" id="портал">Портал</h1>
+<div class="level1">
+
+<p>
+Скопировать папку distrib/cctv-portal в /var/www.
+</p>
+
+<p>
+Скопировать файл distrib/cctv-portal-custom/files/jw/newtubedark.zip в /var/www/cctv-portal/files/jw/.
+</p>
+
+<p>
+Создать local.php
+</p>
+<pre class="code file bash"><span class="kw3">cd</span> <span class="sy0">/</span>var<span class="sy0">/</span>www<span class="sy0">/</span>cctv-portal
+<span class="kw2">cp</span> <span class="re5">-vi</span> protected<span class="sy0">/</span>config<span class="sy0">/</span>local.php.sample.txt protected<span class="sy0">/</span>config<span class="sy0">/</span>local.php</pre>
+
+<p>
+Настроить права доступа к папкам:
+</p>
+<pre class="code file bash"><span class="kw3">cd</span> <span class="sy0">/</span>var<span class="sy0">/</span>www<span class="sy0">/</span>cctv-portal
+<span class="kw2">chgrp</span> <span class="re5">-R</span> www-data images assets protected<span class="sy0">/</span>runtime protected<span class="sy0">/</span>config<span class="sy0">/</span>local.php
+<span class="kw2">chmod</span> <span class="nu0">775</span> images images<span class="sy0">/</span>partner images<span class="sy0">/</span>partner<span class="sy0">/</span>camera images<span class="sy0">/</span>screenshot assets protected<span class="sy0">/</span>runtime
+<span class="kw2">chmod</span> <span class="nu0">640</span> protected<span class="sy0">/</span>config<span class="sy0">/</span>local.php</pre>
+
+<p>
+Для CentOS 7 и выше выполнить:
+</p>
+<pre class="code file bash"><span class="kw3">cd</span> <span class="sy0">/</span>var<span class="sy0">/</span>www<span class="sy0">/</span>cctv-portal
+<span class="kw2">chgrp</span> <span class="re5">-R</span> apache images assets protected<span class="sy0">/</span>runtime protected<span class="sy0">/</span>config<span class="sy0">/</span>local.php
+<span class="kw2">chmod</span> <span class="nu0">775</span> images images<span class="sy0">/</span>partner images<span class="sy0">/</span>partner<span class="sy0">/</span>camera images<span class="sy0">/</span>screenshot assets protected<span class="sy0">/</span>runtime
+<span class="kw2">chmod</span> <span class="nu0">640</span> protected<span class="sy0">/</span>config<span class="sy0">/</span>local.php
+<span class="kw2">yum install</span> policycoreutils-python
+semanage fcontext <span class="re5">-a</span> <span class="re5">-t</span> httpd_sys_rw_content_t <span class="st_h">'/var/www/cctv-portal/assets(/.*)?'</span>
+restorecon <span class="re5">-Rv</span> <span class="sy0">/</span>var<span class="sy0">/</span>www<span class="sy0">/</span>cctv-portal<span class="sy0">/</span>assets
+semanage fcontext <span class="re5">-a</span> <span class="re5">-t</span> httpd_sys_rw_content_t <span class="st_h">'/var/www/cctv-portal/protected/runtime(/.*)?'</span>
+restorecon <span class="re5">-Rv</span> <span class="sy0">/</span>var<span class="sy0">/</span>www<span class="sy0">/</span>cctv-portal<span class="sy0">/</span>protected<span class="sy0">/</span>runtime
+setsebool <span class="re5">-P</span> httpd_can_network_connect <span class="nu0">1</span></pre>
+
+<p>
+Отредактировать файл /var/www/cctv-portal/protected/config/local.php. В частности следует обязательно поменять параметр password на значение, указанное ранее при создании базы данных. Также следует обратить внимание на параметр timeZone. Прочие параметры можно будет отредактировать позднее через административный интерфейс (см. документ «Форпост. Руководство по эксплуатации для интернет-провайдера.pdf», fpst-provider.pdf).
+</p>
+
+<p>
+Обратите внимание, что временная зона в local.php должна совпадать с системной временной зоной.
+</p>
+
+<p>
+В файле /etc/apache2/sites-available/default поменять /var/www на /var/www/cctv-portal. Для папки /var/www/cctv-portal отключить опцию Indexes и поставить AllowOverride All. Включить модуль rewrite (a2enmod rewrite). Перезапустить apache.
+</p>
+
+<p>
+Настроить cron:
+</p>
+<ul>
+<li class="level1"><div class="li"> каждый час запуск команды «php /var/www/cctv-portal/protected/cron.php notice».</div>
+</li>
+<li class="level1"><div class="li"> каждые две минуты запуск команды «php /var/www/cctv-portal/protected/cron.php screenshot».</div>
+</li>
+</ul>
+
+</div>
+<h1 class="sectionedit6" id="firewall">Firewall</h1>
+<div class="level1">
+
+<p>
+Конечным пользователям для работы требуется доступ на порт 80 (указывается в конфигурации сервера apache) и на порты с 8080 по 8089 включительно (настраивается в интерфейсе администратора: Кластеры → [выбрать кластер, например master] → [выбрать стример], после внесение изменений следует перезапустить процесс cctv-streamer).
+</p>
+
+<p>
+Для работы подсистемы уведомления о движении камеры должны иметь возможность подключаться к серверу видеонаблюдения на порты 80, 2084 (<abbr title="Simple Mail Transfer Protocol">SMTP</abbr>), 2087 (основной порт <abbr title="File Transfer Protocol">FTP</abbr>, настраивается в интерфейсе администратора: Кластеры → [выбрать кластер, например master] → Редактировать → <abbr title="File Transfer Protocol">FTP</abbr> порт, после внесение изменений следует перезапустить процесс cctv-master) и все порты от 1024 и выше для работы пассивного режима <abbr title="File Transfer Protocol">FTP</abbr>.
+</p>
+
+</div>
+<h1 class="sectionedit7" id="распределенная_установка">Распределенная установка</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> Установка стримера на отдельный сервер</div>
+<ul>
+<li class="level2"><div class="li"> Необходимые пакеты</div>
+<ul>
+<li class="level3"><div class="li"> Linux</div>
+<ul>
+<li class="level4"><div class="li"> libev-perl libanyevent-perl</div>
+</li>
+</ul>
+</li>
+<li class="level3"><div class="li"> FreeBSD</div>
+<ul>
+<li class="level4"><div class="li"> p5-EV p5-AnyEvent</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Скопировать site_perl и cctvctrl из дистрибутива (см. выше)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Установка портала на отдельный сервер</div>
+<ul>
+<li class="level2"><div class="li"> Необходимые пакеты</div>
+<ul>
+<li class="level3"><div class="li"> apache* php* (см. начало документа)</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> MySQL может быть установлен вместе с порталом или отдельно</div>
+</li>
+<li class="level1"><div class="li"> Мастер не имеет смысла ставить на отдельный сервер. Мастер может быть установлен либо на один сервер вместе с порталом, либо на один сервер вместе с MySQL.</div>
+<ul>
+<li class="level2"><div class="li"> Необходимые пакеты</div>
+<ul>
+<li class="level3"><div class="li"> Linux</div>
+<ul>
+<li class="level4"><div class="li"> libev-perl libanyevent-perl</div>
+</li>
+</ul>
+</li>
+<li class="level3"><div class="li"> FreeBSD</div>
+<ul>
+<li class="level4"><div class="li"> p5-EV p5-AnyEvent</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Скопировать site_perl и cctvctrl из дистрибутива (см. выше)</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<h1 class="sectionedit8" id="freebsd">FreeBSD</h1>
+<div class="level1">
+
+</div>
+<h3 class="sectionedit9" id="пакеты">Пакеты</h3>
+<div class="level3">
+
+<p>
+apache22 mysql-server
+php5 mod_php5 php5-ctype php5-curl php5-dom php5-filter php5-pdo_mysql php5-session php5-xml php5-gd pecl-APC php5-json php5-hash php5-simplexml php5-openssl php5-mbstring
+p5-EV p5-AnyEvent p5-DBD-mysql
+</p>
+
+</div>
+<h3 class="sectionedit10" id="создание_пользователя">Создание пользователя</h3>
+<div class="level3">
+<pre class="code file bash">pw group add <span class="re5">-n</span> cctv <span class="re5">-g</span> <span class="nu0">901</span>
+pw user add <span class="re5">-n</span> cctv <span class="re5">-u</span> <span class="nu0">901</span> <span class="re5">-c</span> <span class="st_h">'CCTV Daemons'</span> <span class="re5">-g</span> cctv <span class="re5">-d</span> <span class="sy0">/</span>nonexistent <span class="re5">-s</span> <span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>nologin</pre>
+
+</div>
+<h1 class="sectionedit11" id="centos">CentOS</h1>
+<div class="level1">
+
+</div>
+<h3 class="sectionedit12" id="пакеты1">Пакеты</h3>
+<div class="level3">
+
+<p>
+В дополнение к указанным в начале документа:<br/>
+
+php-xml php-mbstring<br/>
+
+php-mcrypt php-bcmath
+</p>
+
+<p>
+Полный список требуемых под CentOS 6.5 пакетов:<br/>
+
+mysql-server httpd php php-gd php-mysql php-common php-xml php-mbstring
+</p>
+
+<p>
+Для CentOS версии 7 и старше пакет mysql-server может отсутствовать. В этом случае необходимо выполнить:<br/>
+
+</p>
+<pre class="file">yum install mariadb-server
+service mariadb start
+chkconfig mariadb on</pre>
+
+</div>
+<h3 class="sectionedit13" id="ev_anyevent">EV, AnyEvent</h3>
+<div class="level3">
+<pre class="file"># yum install gcc perl-YAML perl-CPAN
+# cpan
+(далее команды для cpan)
+&gt; install EV
+&gt; force install AnyEvent
+&gt; quit</pre>
+
+<p>
+Внутри cpan на все вопросы отвечаем yes.
+</p>
+
+<p>
+Если при установке пакета gcc возникает ошибка вида «Requires: kernel-headers», необходимо выполнить:<br/>
+
+</p>
+<pre class="file">yum install kernel-headers --disableexcludes=all</pre>
+
+</div>
+<h3 class="sectionedit14" id="портал1">Портал</h3>
+<div class="level3">
+<pre class="file">iptables -I INPUT 5 -i eth0 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -I INPUT 6 -i eth0 -p tcp --dport 8080:8089 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -I INPUT 7 -i eth0 -p tcp --dport 2087 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -I INPUT 8 -i eth0 -p tcp --dport 2084 -m state --state NEW,ESTABLISHED -j ACCEPT
+setsebool -P httpd_can_network_connect 1</pre>
+
+</div>
+<h1 class="sectionedit15" id="ubuntu_16_и_выше">Ubuntu 16 и выше</h1>
+<div class="level1">
+
+</div>
+<h3 class="sectionedit16" id="пакеты2">Пакеты</h3>
+<div class="level3">
+
+<p>
+Необходимо явно установить PHP5:
+</p>
+<pre class="file">add-apt-repository ppa:ondrej/php
+apt-get update
+apt-get install php5.6 php5.6-gd php5.6-curl php5.6-mysql php5.6-json php5.6-mbstring php5.6-xml</pre>
+
+</div>
+<h1 class="sectionedit17" id="обновление">Обновление</h1>
+<div class="level1">
+
+</div>
+<h2 class="sectionedit18" id="порядок_обновления">Порядок обновления</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> service cctv-master stop</div>
+</li>
+<li class="level1"><div class="li"> apachectl stop</div>
+</li>
+<li class="level1"><div class="li"> mysqldump -B cctv | gzip -c - &gt; cctv-`date &#039;+%Y%m%d-%H%M&#039;`.sql.gz</div>
+</li>
+<li class="level1"><div class="li"> tools/sql-diff --new sql/cctv-db.sql --db cctv | mysql cctv</div>
+</li>
+<li class="level1"><div class="li"> tools/dbdata --new sql/dbdata.txt --db cctv | mysql cctv</div>
+</li>
+<li class="level1"><div class="li"> заменить исполняемые файлы cctv-master и cctv-streamer</div>
+</li>
+<li class="level1"><div class="li"> service cctv-master start</div>
+</li>
+<li class="level1"><div class="li"> service cctv-streamer restart</div>
+</li>
+<li class="level1"><div class="li"> скопировать папку cctv-portal поверх старой установки портала (сайта, /var/www/cctv-portal)</div>
+</li>
+<li class="level1"><div class="li"> очистить папку (/var/www/)cctv-portal/assets</div>
+</li>
+<li class="level1"><div class="li"> apachectl start</div>
+</li>
+</ol>
+
+</div>
+<h2 class="sectionedit19" id="структура_базы_данных">Структура базы данных</h2>
+<div class="level2">
+<pre class="file">cd &lt;папка распакованного дистрибутива&gt;
+tools/sql-diff --new sql/cctv-db.sql --db cctv | mysql cctv</pre>
+
+</div>
+<h2 class="sectionedit20" id="обновление_справочников">Обновление справочников</h2>
+<div class="level2">
+<pre class="file">cd &lt;папка распакованного дистрибутива&gt;
+tools/dbdata --new sql/dbdata.txt --db cctv | mysql cctv</pre>
+
+</div>
+<h2 class="sectionedit21" id="параметры_утилит_sql-diff_и_dbdata">Параметры утилит sql-diff и dbdata</h2>
+<div class="level2">
+<div class="table sectionedit22"><table class="inline">
+	<tr class="row0">
+		<th class="col0"> Параметр </th><th class="col1"> Назначение </th><th class="col2"> По умолчанию </th>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> --new &#039;file&#039; </td><td class="col1"> Имя файла с новой структурой БД или новыми данными справочников </td><td class="col2"></td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> --db &#039;database&#039; </td><td class="col1"> Имя базы данных для сравнения </td><td class="col2"></td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> --defaults-file &#039;file&#039; </td><td class="col1"> См. документацию на mysql </td><td class="col2"> ~/.my.cnf </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> --no-defaults-file </td><td class="col1"> Не использовать ~/.my.cnf </td><td class="col2"></td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> --host &#039;host&#039; </td><td class="col1"> Имя хоста с БД </td><td class="col2"></td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> --user &#039;user&#039; </td><td class="col1"> Имя пользователя для подключения к БД </td><td class="col2"></td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> --password </td><td class="col1"> Запросить ввод пароля для подключения к БД с терминала после запуска скрипта </td><td class="col2"></td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> --password=value </td><td class="col1"> Пароль для подключения к БД </td><td class="col2"></td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> --uncomment-drops </td><td class="col1"> Разрешить drop для таблиц и полей* </td><td class="col2"></td>
+	</tr>
+</table></div>
+
+<p>
+* По умолчанию скрипт sql-diff все команды drop для таблиц и полей формирует в виде комментариев. <br/>
+
+Использование флага --uncomment-drops позволяет сформировать эти команды готовыми к выполнению, без комментариев.
+</p>
+
+</div>
+<h2 class="sectionedit23" id="пароль_mysql">Пароль MySQL</h2>
+<div class="level2">
+
+<p>
+Удобнее всего, если пароль для MySQL лежит в файле ~/.my.cnf
+</p>
+<pre class="code file conf">[client]
+password=ЗначениеПароля</pre>
+
+<p>
+Если по каким-то причинам Вы не желаете такой файл создавать, то для обновления структуры базы данных (пункт 4 в порядке обновления выше) вместо одной команды, Вам скорее всего придется воспользоваться двумя:
+</p>
+<pre class="code file bash">tools<span class="sy0">/</span>sql-diff <span class="re5">--new</span> sql<span class="sy0">/</span>cctv-db.sql <span class="re5">--db</span> cctv <span class="re5">--password</span> <span class="sy0">&gt;</span> changes.sql
+mysql cctv <span class="sy0">&lt;</span> changes.sql</pre>
+
+</div>
+                    <!-- wikipage stop -->
+                                    </div>
+
+
+                            </div></div><!-- /content -->
+
+
+        </div><!-- /wrapper -->
+
+        
+
+    </div></div><!-- /site -->
+
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

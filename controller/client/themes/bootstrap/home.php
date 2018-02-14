@@ -11,7 +11,7 @@
 			<ul class="list-grid-ul">
 			<?php
 			 foreach ($menu as $id => $pmenu){
-				 if ($pmenu["type"]=="main"){				     
+				 if (($pmenu["type"]=="main") and ($pmenu["page"]=="home")){				     
 					 ?>
 					<li class="picca_li">
 						<div class="titlepicca"><b><?php echo $pmenu["name"];?></b></div>
@@ -91,7 +91,29 @@
 		    <a href="index.php?content_page=action<?php echo"&fromapp=$fromapp";?>">			
 			<img  width="100%" src="/controller/client/themes/bootstrap/img/to2to.jpg" alt="Пицца из двух половинок" />
 		    </a>
-		</div>		    
+		</div>	
+		
+		<div id="vk_widget"><div style="align:center;"><img alt="animation" src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет загрузка страницы..</h2></div></div>
+		<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
+		<script>
+		    function VK_Widget_Init(){
+			document.getElementById('vk_widget').innerHTML = '<div id="vk_groups"></div>';
+			VK.Widgets.Group("vk_groups", {mode: 0, width: "auto", height: "400"}, 155678039);
+		    };
+		    window.addEventListener('load', VK_Widget_Init, false);
+		    window.addEventListener('resize', VK_Widget_Init, false);
+		</script>		
+		<div id="vk_widget1"><div style="align:center;"><img alt="animation" src="/controller/client/themes/bootstrap/img/animpicca.gif"><br/><h2>Идет загрузка страницы..</h2></div></div>
+		<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
+		<script>
+		    function VK_Widget_Init(){
+			document.getElementById('vk_widget1').innerHTML = '<div id="vk_groups1"></div>';
+			VK.Widgets.Group("vk_groups1", {mode: 4, width: "auto", height: "400"}, 155678039);
+		    };
+		    window.addEventListener('load', VK_Widget_Init, false);
+		    window.addEventListener('resize', VK_Widget_Init, false);
+		</script>		
+		
 	    <!-- Rating@Mail.ru logo -->
 	    <div align="center">
 	    <a href="https://top.mail.ru/jump?from=2938393">

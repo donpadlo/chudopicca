@@ -23,13 +23,15 @@
 	<link rel="stylesheet" href="controller/client/themes/<?php echo $cfg->theme; ?>/css/simplegrid.css">
 	<link rel="stylesheet" href="controller/client/themes/<?php echo $cfg->theme; ?>/css/chudo.css">	
 	<link rel="stylesheet" href="controller/client/themes/<?php echo $cfg->theme; ?>/css/jquery.toast.min.css">			
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"> 
 <!--	<link rel="stylesheet" href="controller/client/themes/<?php echo $cfg->theme; ?>/css/bootstrap-select.min.css">			-->
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery-3.2.1.min.js"></script>
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery-ui.min.js"></script>	
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/bootstrap.min.js"></script>	
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/simple-list-grid.js"></script>		
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/chudopicca.js?randomid=234528938"></script>	
-	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery.maskedinput.min.js"></script>		
+	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery.inputmask.bundle.min.js"></script>		
+	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/phone-codes/phone-ru.js"></script>		
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/device.min.js"></script>			
 	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/jquery.toast.min.js"></script>			
 <!--	<script src="controller/client/themes/<?php echo $cfg->theme; ?>/js/bootstrap-select.min.js"></script>		-->
@@ -70,15 +72,15 @@ menu_array=[];
 </script>    
 <div class="container-fluid">
     <div class="row">
-	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding-right: 0px;padding-left: 0px;text-align: center;">   				
+	<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="padding-right: 0px;padding-left: 0px;text-align: center;font-family:'Lobster', cursive;font-size: medium;">   				
 	    Сегодня работаем</br> с <?php echo $worktime[date("N")][0].":00 до ".$worktime[date("N")][count($worktime[date("N")])-1].":00"; ?>
 	</div>
-	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding-right: 0px;padding-left: 0px;text-align: center;">   					    
-		<img alt="логотип" height="100%" src="/controller/client/themes/bootstrap/img/head.png" class="img-responsive">	    
+	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="padding-right: 0px;padding-left: 0px;text-align: center;">   					    
+		<img alt="логотип" height="100%" src="/controller/client/themes/bootstrap/img/chhead.jpg" class="img-responsive">	    
 	</div>
-	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding-right: 0px;padding-left: 0px;text-align: center;">   					        
+	<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="padding-right: 0px;padding-left: 0px;text-align: center;font-family:'Lobster', cursive;font-size: medium;">   					        
 		<img alt="телефон" height="16"  src="/controller/client/themes/bootstrap/img/phone-icon.png"></br>
-		ТЕЛЕФОН ДЛЯ ЗАКАЗОВ<br/>
+		Телефон для заказа<br/>
 		<?php echo "$mobile_site"; ?>
 		<div id="widjet_cart" class="widjet_cart">
 		    <img alt="корзина" id="imgcart" onclick="OpenCart();" height="40" width="40" src="controller/client/themes/bootstrap/img/purchase.png" />
@@ -101,7 +103,8 @@ menu_array=[];
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-	<li <?php if ($content_page=="home"){echo "class=\"active\"";};?>><a href="index.php?content_page=home<?php echo"&fromapp=$fromapp";?>">Меню</a></li>
+	<li <?php if ($content_page=="home"){echo "class=\"active\"";};?>><a href="index.php?content_page=home<?php echo"&fromapp=$fromapp";?>">Пицца</a></li>
+	<li <?php if ($content_page=="pies"){echo "class=\"active\"";};?>><a href="index.php?content_page=pies<?php echo"&fromapp=$fromapp";?>">Пироги</a></li>
 	<li <?php if ($content_page=="action"){echo "class=\"active\"";};?>><a href="index.php?content_page=action<?php echo"&fromapp=$fromapp";?>">Акции</a></li>
 	<li <?php if ($content_page=="oferta"){echo "class=\"active\"";};?>><a href="index.php?content_page=oferta<?php echo"&fromapp=$fromapp";?>">Оферта</a></li>	
 	<li <?php if ($content_page=="about"){echo "class=\"active\"";};?>><a href="index.php?content_page=about<?php echo"&fromapp=$fromapp";?>">Где мы</a></li>	

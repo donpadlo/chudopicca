@@ -1,3 +1,8 @@
+.hide-bullets {
+list-style:none;
+margin-left: -40px;
+margin-top:20px;
+}
 .navbar-default{   
     background-color: #f5c056 !important;
     border-color: #080707 !important;
@@ -119,6 +124,7 @@ border-radius: 3px;
     padding-right: 5px;
     border-radius: 10px 10px 0px 0px;
     right: 0px; 
+    font-family: 'Lobster',cursive;
 }
 .piccadescr{
     padding-top: 14px;

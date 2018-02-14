@@ -149,7 +149,8 @@ function ZakazFinish(){
 };
 function IsWorkTime(worktime){
   var dt=new Date();
-  var w=dt.getDay()+1;
+  var w=dt.getDay();
+console.log(w);
   if (typeof(worktime[w])!="undefined"){
       if (worktime[w].indexOf(dt.getHours())!=-1){
 	  console.log("день недели:",w);
@@ -157,10 +158,12 @@ function IsWorkTime(worktime){
 	console.log("работаем!");
 	return true;  	  	  
       } else {
+	console.log(w);
 	console.log("в это время не работаем!");
 	return false;  	  
       };      
   } else {
+    console.log(w);
     console.log("в этот день недели не работаем!");
     return false;  
   };
@@ -266,7 +269,7 @@ function OpenCart(){
 		ht=ht+'<label for="phone">Дополнительные сведения</label>';
 		ht=ht+'<input type="text" class="form-control" id="phone" name="phone" placeholder="Введите ваш телефон">';		
 		ht=ht+'</div>';
-		ht=ht+'<div style="display:none;" class="checkbox">';
+		ht=ht+'<divclass="checkbox">';
 		ht=ht+'	<label>';
 		ht=ht+'		<input id="fromcart" name="fromcart" type="checkbox"> Оплата будет с пластиковой карты';
 		ht=ht+'	</label>';
@@ -278,10 +281,13 @@ function OpenCart(){
 		ht=ht+'</div>';
 		ht=ht+'<label for="phone">Адрес доставки</label>';		
 		ht=ht+'<input type="text" class="form-control" id="address" name="address" placeholder="улица, дом, номер квартиры">';
-		ht=ht+'<div class="alert alert-warning"><strong>Внимание!</strong> Доставка осуществляется только по г.Вологда</div>';		
+		ht=ht+'<div class="alert alert-warning"><strong>Внимание!</strong> По г.Вологда доставка бесплатна, <i class="popshow" id="popdost" data-toggle="popover" data-placement="top" data-content="100 руб - Прилуки, Алексино, Лукьянова, Станкозавод, Кувшинова, Ананьина, Лоста, Дорожный, Аэропорт\n 150 руб. - Непотягово, Майский.">кроме..</i></div>';		
 		ht=ht+'<button type="button" onclick="ZakazFinish();" class="btn btn-info btn-sm form-control">Оформить заказ</button>';
+		ht=ht+"<script>$('#popdost').popover();</script>";
+
 		$("#list_cart").html(ht);
-		$("#phone").mask("+7(999) 999-9999");	
+		//$("#phone").mask("+7-999-999-99-99");	
+		$("#phone").inputmask("+7 (999)-999-99-99");  //static mask
 		$("#address").val(addressc);
 		$("#phone").val(phonec);
 		samo.checked=samoc;
